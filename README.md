@@ -13,3 +13,5 @@ Noteworthy features include -
   4. A Dislike and Bookmark button
   
   5. A sharing widget to flaunt your selection
+  
+  6. A fairly creative & intuitive UI
