@@ -6,7 +6,7 @@
 //  Copyright © 2015 yogesh singh. All rights reserved.
 //
 
-//@import FBSDKCoreKit;
+@import FBSDKCoreKit;
 
 #import "SDAppDelegate.h"
 #import "SDLoginVC.h"
@@ -23,18 +23,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-//    [[FBSDKApplicationDelegate sharedInstance] application:application
-//                             didFinishLaunchingWithOptions:launchOptions];
-    
     window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     SDLoginVC *loginVC = [[SDLoginVC alloc] init];
     UINavigationController *navigationController = [[UINavigationController alloc]initWithRootViewController:loginVC];
     navigationController.navigationBar.translucent = YES;
     navigationController.navigationBar.tintColor = [SDUtils getAverageColorFromImage:BG_IMAGE];
-    [navigationController.navigationBar setBackgroundImage:BG_IMAGE forBarMetrics:UIBarMetricsDefault];
     window.rootViewController = navigationController;
     
     [window makeKeyAndVisible];
+    
+    [[FBSDKApplicationDelegate sharedInstance] application:application
+                             didFinishLaunchingWithOptions:launchOptions];
     
     return YES;
 }
@@ -54,19 +53,23 @@
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-//    [FBSDKAppEvents activateApp];
+    [FBSDKAppEvents activateApp];
 }
 
-//- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-//    
-//    return [[FBSDKApplicationDelegate sharedInstance] application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
-//}
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    
+    return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                          openURL:url
+                                                sourceApplication:sourceApplication
+                                                       annotation:annotation];
+}
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     // Saves changes in the application's managed object context before the application terminates.
     [self saveContext];
 }
+
 
 #pragma mark - Core Data Stack
 

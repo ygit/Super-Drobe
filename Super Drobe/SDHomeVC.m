@@ -6,6 +6,9 @@
 //  Copyright © 2015 yogesh singh. All rights reserved.
 //
 
+@import FBSDKCoreKit;
+@import FBSDKLoginKit;
+
 #import "SDHomeVC.h"
 #import "SDUtils.h"
 
@@ -19,8 +22,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.hidesBackButton = YES;
+    
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.tintColor = [UIColor lightGrayColor];
+    UIBarButtonItem *barBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"logout"]
+                                                               style:UIBarButtonItemStylePlain
+                                                              target:self action:@selector(performLogout:)];
+    self.navigationItem.leftBarButtonItem = barBtn;
 }
 
 - (void)viewWillLayoutSubviews{
@@ -36,6 +44,15 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+
+#pragma mark - Action Helpers
+
+- (void)performLogout:(id)sender{
+
+    [[FBSDKLoginManager new] logOut];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 

@@ -7,19 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC3A88301BEAC8F5001D9F2B /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC3A882D1BEAC8F5001D9F2B /* FBSDKCoreKit.framework */; };
+		EC3A88311BEAC8F5001D9F2B /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC3A882E1BEAC8F5001D9F2B /* FBSDKLoginKit.framework */; };
+		EC3A88321BEAC8F5001D9F2B /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC3A882F1BEAC8F5001D9F2B /* FBSDKShareKit.framework */; };
 		EC3EB5401BE98B5E003ADEE7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3EB53F1BE98B5E003ADEE7 /* main.m */; };
 		EC3EB5431BE98B5E003ADEE7 /* SDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3EB5421BE98B5E003ADEE7 /* SDAppDelegate.m */; };
 		EC3EB5461BE98B5E003ADEE7 /* SDLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3EB5451BE98B5E003ADEE7 /* SDLoginVC.m */; };
 		EC3EB54C1BE98B5E003ADEE7 /* Super_Drobe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EC3EB54A1BE98B5E003ADEE7 /* Super_Drobe.xcdatamodeld */; };
 		EC3EB54E1BE98B5E003ADEE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC3EB54D1BE98B5E003ADEE7 /* Assets.xcassets */; };
 		EC3EB5511BE98B5E003ADEE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC3EB54F1BE98B5E003ADEE7 /* LaunchScreen.storyboard */; };
-		EC5222581BEA2B0C003670BF /* AppIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC5222571BEA2B0C003670BF /* AppIcons.xcassets */; };
 		EC52225B1BEA6438003670BF /* SDHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EC52225A1BEA6438003670BF /* SDHomeVC.m */; };
-		EC52226C1BEA90B5003670BF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC52226B1BEA90B5003670BF /* Default-568h@2x.png */; };
 		ECA246631BEA23F200D358B9 /* SDUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA246621BEA23F200D358B9 /* SDUtils.m */; };
+		ECAF9B4A1BEADFF7002DE248 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECAF9B491BEADFF7002DE248 /* Media.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EC3A882D1BEAC8F5001D9F2B /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		EC3A882E1BEAC8F5001D9F2B /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		EC3A882F1BEAC8F5001D9F2B /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		EC3EB53B1BE98B5E003ADEE7 /* Super Drobe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Super Drobe.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC3EB53F1BE98B5E003ADEE7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EC3EB5411BE98B5E003ADEE7 /* SDAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDAppDelegate.h; sourceTree = "<group>"; };
@@ -30,12 +35,11 @@
 		EC3EB54D1BE98B5E003ADEE7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EC3EB5501BE98B5E003ADEE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EC3EB5521BE98B5E003ADEE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EC5222571BEA2B0C003670BF /* AppIcons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AppIcons.xcassets; sourceTree = "<group>"; };
 		EC5222591BEA6438003670BF /* SDHomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDHomeVC.h; sourceTree = "<group>"; };
 		EC52225A1BEA6438003670BF /* SDHomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDHomeVC.m; sourceTree = "<group>"; };
-		EC52226B1BEA90B5003670BF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		ECA246611BEA23F200D358B9 /* SDUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDUtils.h; sourceTree = "<group>"; };
 		ECA246621BEA23F200D358B9 /* SDUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDUtils.m; sourceTree = "<group>"; };
+		ECAF9B491BEADFF7002DE248 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +47,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC3A88311BEAC8F5001D9F2B /* FBSDKLoginKit.framework in Frameworks */,
+				EC3A88301BEAC8F5001D9F2B /* FBSDKCoreKit.framework in Frameworks */,
+				EC3A88321BEAC8F5001D9F2B /* FBSDKShareKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,7 +59,6 @@
 		EC3EB5321BE98B5E003ADEE7 = {
 			isa = PBXGroup;
 			children = (
-				EC52226B1BEA90B5003670BF /* Default-568h@2x.png */,
 				EC3EB53D1BE98B5E003ADEE7 /* Super Drobe */,
 				EC3EB53C1BE98B5E003ADEE7 /* Products */,
 				EC52225C1BEA78B7003670BF /* Frameworks */,
@@ -86,7 +92,7 @@
 				EC3EB5421BE98B5E003ADEE7 /* SDAppDelegate.m */,
 				EC3EB53F1BE98B5E003ADEE7 /* main.m */,
 				EC3EB54D1BE98B5E003ADEE7 /* Assets.xcassets */,
-				EC5222571BEA2B0C003670BF /* AppIcons.xcassets */,
+				ECAF9B491BEADFF7002DE248 /* Media.xcassets */,
 				EC3EB54F1BE98B5E003ADEE7 /* LaunchScreen.storyboard */,
 				EC3EB5521BE98B5E003ADEE7 /* Info.plist */,
 			);
@@ -115,6 +121,9 @@
 		EC52225C1BEA78B7003670BF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EC3A882D1BEAC8F5001D9F2B /* FBSDKCoreKit.framework */,
+				EC3A882E1BEAC8F5001D9F2B /* FBSDKLoginKit.framework */,
+				EC3A882F1BEAC8F5001D9F2B /* FBSDKShareKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -177,9 +186,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC3EB5511BE98B5E003ADEE7 /* LaunchScreen.storyboard in Resources */,
-				EC52226C1BEA90B5003670BF /* Default-568h@2x.png in Resources */,
+				ECAF9B4A1BEADFF7002DE248 /* Media.xcassets in Resources */,
 				EC3EB54E1BE98B5E003ADEE7 /* Assets.xcassets in Resources */,
-				EC5222581BEA2B0C003670BF /* AppIcons.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
