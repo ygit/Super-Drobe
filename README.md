@@ -6,12 +6,16 @@ Noteworthy features include -
 
   1. A basic login screen with option to login with Facebook
 
-  2. First time users are asked to upload shirts, t-shirts and pants photos via camera or gallery
+  2. Users can upload photos of shirts, t-shirts and pants via camera or photo gallery
   
-  3. A suggestion screen with a random pair of attire for the day
+  3. Home screen which suggests a random pair of attire for the day
   
-  4. A Dislike and Bookmark button
+  4. A Dislike button which instantly shows a new pair
   
-  5. A sharing widget to flaunt your selection
+  5. A Bookmark option to shortlist pairs 
   
-  6. A fairly creative & intuitive UI
+  6. A Bookmarks screen showcasing only bookmarked pairs of clothes
+  
+  5. A sharing widget to share your selection across AirDrop, Mail, Facebook, Twitter, etc
+  
+  6. An intuitive & welcoming UI & navigation scheme 
