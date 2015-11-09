@@ -18,6 +18,12 @@
 		EC3EB54E1BE98B5E003ADEE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC3EB54D1BE98B5E003ADEE7 /* Assets.xcassets */; };
 		EC3EB5511BE98B5E003ADEE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC3EB54F1BE98B5E003ADEE7 /* LaunchScreen.storyboard */; };
 		EC52225B1BEA6438003670BF /* SDHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EC52225A1BEA6438003670BF /* SDHomeVC.m */; };
+		EC6414171BF0ADB300944555 /* Pant+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = EC6414101BF0ADB300944555 /* Pant+CoreDataProperties.m */; };
+		EC6414181BF0ADB300944555 /* Pant.m in Sources */ = {isa = PBXBuildFile; fileRef = EC6414121BF0ADB300944555 /* Pant.m */; };
+		EC6414191BF0ADB300944555 /* Shirt+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = EC6414141BF0ADB300944555 /* Shirt+CoreDataProperties.m */; };
+		EC64141A1BF0ADB300944555 /* Shirt.m in Sources */ = {isa = PBXBuildFile; fileRef = EC6414161BF0ADB300944555 /* Shirt.m */; };
+		EC64141E1BF0B4F500944555 /* SDDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EC64141D1BF0B4F500944555 /* SDDataHelper.m */; };
+		EC9AFBCF1BF0CCE4004C6961 /* SDBookmarksVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EC9AFBCE1BF0CCE4004C6961 /* SDBookmarksVC.m */; };
 		ECA246631BEA23F200D358B9 /* SDUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA246621BEA23F200D358B9 /* SDUtils.m */; };
 		ECAF9B4A1BEADFF7002DE248 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECAF9B491BEADFF7002DE248 /* Media.xcassets */; };
 /* End PBXBuildFile section */
@@ -40,6 +46,18 @@
 		EC3EB5521BE98B5E003ADEE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC5222591BEA6438003670BF /* SDHomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDHomeVC.h; sourceTree = "<group>"; };
 		EC52225A1BEA6438003670BF /* SDHomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDHomeVC.m; sourceTree = "<group>"; };
+		EC64140F1BF0ADB300944555 /* Pant+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Pant+CoreDataProperties.h"; sourceTree = "<group>"; };
+		EC6414101BF0ADB300944555 /* Pant+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Pant+CoreDataProperties.m"; sourceTree = "<group>"; };
+		EC6414111BF0ADB300944555 /* Pant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pant.h; sourceTree = "<group>"; };
+		EC6414121BF0ADB300944555 /* Pant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pant.m; sourceTree = "<group>"; };
+		EC6414131BF0ADB300944555 /* Shirt+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Shirt+CoreDataProperties.h"; sourceTree = "<group>"; };
+		EC6414141BF0ADB300944555 /* Shirt+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Shirt+CoreDataProperties.m"; sourceTree = "<group>"; };
+		EC6414151BF0ADB300944555 /* Shirt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shirt.h; sourceTree = "<group>"; };
+		EC6414161BF0ADB300944555 /* Shirt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shirt.m; sourceTree = "<group>"; };
+		EC64141C1BF0B4F500944555 /* SDDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDDataHelper.h; sourceTree = "<group>"; };
+		EC64141D1BF0B4F500944555 /* SDDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDDataHelper.m; sourceTree = "<group>"; };
+		EC9AFBCD1BF0CCE4004C6961 /* SDBookmarksVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDBookmarksVC.h; sourceTree = "<group>"; };
+		EC9AFBCE1BF0CCE4004C6961 /* SDBookmarksVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDBookmarksVC.m; sourceTree = "<group>"; };
 		ECA246611BEA23F200D358B9 /* SDUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDUtils.h; sourceTree = "<group>"; };
 		ECA246621BEA23F200D358B9 /* SDUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDUtils.m; sourceTree = "<group>"; };
 		ECAF9B491BEADFF7002DE248 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
@@ -80,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				EC3EB5581BE98B6E003ADEE7 /* Model */,
+				EC64141B1BF0B4D500944555 /* Data Helpers */,
 				EC3EB5591BE98B7A003ADEE7 /* View Helpers */,
 				EC3EB53E1BE98B5E003ADEE7 /* Supporting Files */,
 			);
@@ -108,6 +127,14 @@
 			isa = PBXGroup;
 			children = (
 				EC3EB54A1BE98B5E003ADEE7 /* Super_Drobe.xcdatamodeld */,
+				EC6414131BF0ADB300944555 /* Shirt+CoreDataProperties.h */,
+				EC6414141BF0ADB300944555 /* Shirt+CoreDataProperties.m */,
+				EC6414151BF0ADB300944555 /* Shirt.h */,
+				EC6414161BF0ADB300944555 /* Shirt.m */,
+				EC64140F1BF0ADB300944555 /* Pant+CoreDataProperties.h */,
+				EC6414101BF0ADB300944555 /* Pant+CoreDataProperties.m */,
+				EC6414111BF0ADB300944555 /* Pant.h */,
+				EC6414121BF0ADB300944555 /* Pant.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -119,6 +146,8 @@
 				EC3EB5451BE98B5E003ADEE7 /* SDLoginVC.m */,
 				EC5222591BEA6438003670BF /* SDHomeVC.h */,
 				EC52225A1BEA6438003670BF /* SDHomeVC.m */,
+				EC9AFBCD1BF0CCE4004C6961 /* SDBookmarksVC.h */,
+				EC9AFBCE1BF0CCE4004C6961 /* SDBookmarksVC.m */,
 			);
 			name = "View Helpers";
 			sourceTree = "<group>";
@@ -131,6 +160,15 @@
 				EC3A882F1BEAC8F5001D9F2B /* FBSDKShareKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EC64141B1BF0B4D500944555 /* Data Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				EC64141C1BF0B4F500944555 /* SDDataHelper.h */,
+				EC64141D1BF0B4F500944555 /* SDDataHelper.m */,
+			);
+			name = "Data Helpers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,9 +242,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECA246631BEA23F200D358B9 /* SDUtils.m in Sources */,
+				EC6414181BF0ADB300944555 /* Pant.m in Sources */,
+				EC64141E1BF0B4F500944555 /* SDDataHelper.m in Sources */,
 				EC3EB5461BE98B5E003ADEE7 /* SDLoginVC.m in Sources */,
+				EC6414171BF0ADB300944555 /* Pant+CoreDataProperties.m in Sources */,
+				EC9AFBCF1BF0CCE4004C6961 /* SDBookmarksVC.m in Sources */,
 				EC3EB5431BE98B5E003ADEE7 /* SDAppDelegate.m in Sources */,
+				EC64141A1BF0ADB300944555 /* Shirt.m in Sources */,
 				EC3EB54C1BE98B5E003ADEE7 /* Super_Drobe.xcdatamodeld in Sources */,
+				EC6414191BF0ADB300944555 /* Shirt+CoreDataProperties.m in Sources */,
 				EC52225B1BEA6438003670BF /* SDHomeVC.m in Sources */,
 				EC0428FC1BEEC66600B9F188 /* iCarousel.m in Sources */,
 				EC3EB5401BE98B5E003ADEE7 /* main.m in Sources */,

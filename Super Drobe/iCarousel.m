@@ -128,6 +128,7 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
 
 
 @implementation iCarousel
+@synthesize idTag;
 
 #pragma mark -
 #pragma mark Initialisation

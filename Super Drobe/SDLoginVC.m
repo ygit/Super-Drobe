@@ -124,6 +124,14 @@
     fbLogin.center = CGPointMake(self.view.center.x, loginBtn.center.y + 90);
 }
 
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    usernameField.text = @"";
+    passwordField.text = @"";
+    [usernameField resignFirstResponder];
+    [passwordField resignFirstResponder];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
@@ -217,8 +225,14 @@
     [self.view addSubview:fbLogin];
 }
 
-- (void)textFieldDidEndEditing:(UITextField *)textField{
-    NSLog(@"textFieldDidEndEditing : %@", textField);
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    if (textField.tag == 1000) {
+        [passwordField becomeFirstResponder];
+    }
+    else{
+        [self performLogin:nil];
+    }
+    return YES;
 }
 
 

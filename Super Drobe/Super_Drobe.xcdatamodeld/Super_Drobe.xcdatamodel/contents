@@ -1,4 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="15B42" minimumToolsVersion="Automatic">
+    <entity name="Pant" representedClassName="Pant" syncable="YES">
+        <attribute name="img" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <attribute name="isBookmarked" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isDisliked" optional="YES" attributeType="Boolean" syncable="YES"/>
+    </entity>
+    <entity name="Shirt" representedClassName="Shirt" syncable="YES">
+        <attribute name="img" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <attribute name="isBookmarked" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isDisliked" optional="YES" attributeType="Boolean" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Pant" positionX="115" positionY="-18" width="128" height="88"/>
+        <element name="Shirt" positionX="-63" positionY="-18" width="128" height="88"/>
+    </elements>
 </model>
