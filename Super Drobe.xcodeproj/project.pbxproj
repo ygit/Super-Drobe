@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EC0428FC1BEEC66600B9F188 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0428FB1BEEC66600B9F188 /* iCarousel.m */; };
+		EC04D1B91BF29170005EDD81 /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC04D1B61BF29170005EDD81 /* FXBlurView.m */; };
+		EC04D1BA1BF29170005EDD81 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = EC04D1B81BF29170005EDD81 /* iCarousel.m */; };
 		EC3A88301BEAC8F5001D9F2B /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC3A882D1BEAC8F5001D9F2B /* FBSDKCoreKit.framework */; };
 		EC3A88311BEAC8F5001D9F2B /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC3A882E1BEAC8F5001D9F2B /* FBSDKLoginKit.framework */; };
 		EC3A88321BEAC8F5001D9F2B /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC3A882F1BEAC8F5001D9F2B /* FBSDKShareKit.framework */; };
@@ -29,8 +30,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		EC0428FA1BEEC66600B9F188 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
-		EC0428FB1BEEC66600B9F188 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
+		EC04D1B51BF29170005EDD81 /* FXBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXBlurView.h; sourceTree = "<group>"; };
+		EC04D1B61BF29170005EDD81 /* FXBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXBlurView.m; sourceTree = "<group>"; };
+		EC04D1B71BF29170005EDD81 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
+		EC04D1B81BF29170005EDD81 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
 		EC3A882D1BEAC8F5001D9F2B /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		EC3A882E1BEAC8F5001D9F2B /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		EC3A882F1BEAC8F5001D9F2B /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
@@ -77,6 +80,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EC04D1BB1BF29174005EDD81 /* FXBlurView */ = {
+			isa = PBXGroup;
+			children = (
+				EC04D1B51BF29170005EDD81 /* FXBlurView.h */,
+				EC04D1B61BF29170005EDD81 /* FXBlurView.m */,
+			);
+			name = FXBlurView;
+			sourceTree = "<group>";
+		};
+		EC04D1BC1BF2917F005EDD81 /* iCarousel */ = {
+			isa = PBXGroup;
+			children = (
+				EC04D1B71BF29170005EDD81 /* iCarousel.h */,
+				EC04D1B81BF29170005EDD81 /* iCarousel.m */,
+			);
+			name = iCarousel;
+			sourceTree = "<group>";
+		};
 		EC3EB5321BE98B5E003ADEE7 = {
 			isa = PBXGroup;
 			children = (
@@ -108,13 +129,9 @@
 		EC3EB53E1BE98B5E003ADEE7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				ECA246611BEA23F200D358B9 /* SDUtils.h */,
-				ECA246621BEA23F200D358B9 /* SDUtils.m */,
 				EC3EB5411BE98B5E003ADEE7 /* SDAppDelegate.h */,
 				EC3EB5421BE98B5E003ADEE7 /* SDAppDelegate.m */,
 				EC3EB53F1BE98B5E003ADEE7 /* main.m */,
-				EC0428FA1BEEC66600B9F188 /* iCarousel.h */,
-				EC0428FB1BEEC66600B9F188 /* iCarousel.m */,
 				EC3EB54D1BE98B5E003ADEE7 /* Assets.xcassets */,
 				ECAF9B491BEADFF7002DE248 /* Media.xcassets */,
 				EC3EB54F1BE98B5E003ADEE7 /* LaunchScreen.storyboard */,
@@ -155,6 +172,8 @@
 		EC52225C1BEA78B7003670BF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EC04D1BC1BF2917F005EDD81 /* iCarousel */,
+				EC04D1BB1BF29174005EDD81 /* FXBlurView */,
 				EC3A882D1BEAC8F5001D9F2B /* FBSDKCoreKit.framework */,
 				EC3A882E1BEAC8F5001D9F2B /* FBSDKLoginKit.framework */,
 				EC3A882F1BEAC8F5001D9F2B /* FBSDKShareKit.framework */,
@@ -165,6 +184,8 @@
 		EC64141B1BF0B4D500944555 /* Data Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				ECA246611BEA23F200D358B9 /* SDUtils.h */,
+				ECA246621BEA23F200D358B9 /* SDUtils.m */,
 				EC64141C1BF0B4F500944555 /* SDDataHelper.h */,
 				EC64141D1BF0B4F500944555 /* SDDataHelper.m */,
 			);
@@ -244,7 +265,9 @@
 				ECA246631BEA23F200D358B9 /* SDUtils.m in Sources */,
 				EC6414181BF0ADB300944555 /* Pant.m in Sources */,
 				EC64141E1BF0B4F500944555 /* SDDataHelper.m in Sources */,
+				EC04D1B91BF29170005EDD81 /* FXBlurView.m in Sources */,
 				EC3EB5461BE98B5E003ADEE7 /* SDLoginVC.m in Sources */,
+				EC04D1BA1BF29170005EDD81 /* iCarousel.m in Sources */,
 				EC6414171BF0ADB300944555 /* Pant+CoreDataProperties.m in Sources */,
 				EC9AFBCF1BF0CCE4004C6961 /* SDBookmarksVC.m in Sources */,
 				EC3EB5431BE98B5E003ADEE7 /* SDAppDelegate.m in Sources */,
@@ -252,7 +275,6 @@
 				EC3EB54C1BE98B5E003ADEE7 /* Super_Drobe.xcdatamodeld in Sources */,
 				EC6414191BF0ADB300944555 /* Shirt+CoreDataProperties.m in Sources */,
 				EC52225B1BEA6438003670BF /* SDHomeVC.m in Sources */,
-				EC0428FC1BEEC66600B9F188 /* iCarousel.m in Sources */,
 				EC3EB5401BE98B5E003ADEE7 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
