@@ -14,11 +14,8 @@
 #import "SDLoginVC.h"
 #import "SDHomeVC.h"
 #import "SDUtils.h"
-#import "FXBlurView.h"
 
 @interface SDLoginVC () <UITextFieldDelegate>
-
-@property (strong, nonatomic) FXBlurView *blurView;
 
 @property (strong, nonatomic) UIColor *avgColor;
 
@@ -40,7 +37,7 @@
 
 @implementation SDLoginVC
 
-@synthesize avgColor, blurView;
+@synthesize avgColor;
 @synthesize introLab, loginView;
 @synthesize usernameLab, passwordLab;
 @synthesize usernameField, passwordField;
@@ -81,10 +78,6 @@
     UIImage *bgImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     self.view.backgroundColor = [UIColor colorWithPatternImage:bgImage];
-    
-    //update blurview
-    blurView.frame = self.view.frame;
-    [blurView updateAsynchronously:YES completion:nil];
     
     //drop shadow
     UIBezierPath *loginViewShadow = [UIBezierPath bezierPathWithRect:loginView.bounds];
@@ -149,14 +142,6 @@
 
 - (void)setupView{
     
-    //init
-    blurView = [[FXBlurView alloc] init];
-    [blurView setDynamic:NO];
-    [blurView setBlurEnabled:YES];
-    [blurView setTintColor:[UIColor lightGrayColor]];
-    [blurView setIterations:3];
-    [blurView setUnderlyingView:self.view];
-    
     //init intro label
     introLab = [[UILabel alloc] init];
     [introLab setTextColor:[UIColor blackColor]];
@@ -164,6 +149,19 @@
     [introLab setFont:FONT_MED];
     [introLab setNumberOfLines:0];
     [introLab setText:@"Super Drobe helps to get the best out of you (your wardrobe actually)"];
+    
+    //blur & vibrancy
+    UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+    UIVisualEffectView *blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+    [blurEffectView setFrame:self.view.bounds];
+    
+    UIVibrancyEffect *vibrancyEffect = [UIVibrancyEffect effectForBlurEffect:blurEffect];
+    UIVisualEffectView *vibrancyEffectView = [[UIVisualEffectView alloc] initWithEffect:vibrancyEffect];
+    [vibrancyEffectView setFrame:self.view.bounds];
+    
+    [[vibrancyEffectView contentView] addSubview:introLab];
+    [[blurEffectView contentView] addSubview:vibrancyEffectView];
+    [self.view addSubview:blurEffectView];
     
     //init login view
     loginView = [[UIView alloc] init];
@@ -222,12 +220,9 @@
     [loginView addSubview:passwordLab];
     [loginView addSubview:usernameField];
     [loginView addSubview:passwordField];
-    [self.view addSubview:introLab];
     [self.view addSubview:loginView];
     [self.view addSubview:loginBtn];
     [self.view addSubview:fbLogin];
-    [self.view addSubview:blurView];
-    [self.view sendSubviewToBack:blurView];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{

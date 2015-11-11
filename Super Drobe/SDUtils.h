@@ -24,6 +24,10 @@
 
 #define BOOKMARKED_PANTS_UPDATED @"BOOKMARKED_PANTS_UPDATED"
 
+#define ADD_SHIRTS @"Add Shirts / T-Shirts"
+
+#define ADD_PANTS @"Add Pants"
+
 /**
     Super Drobe utilities class containing app skin helpers, constant declarations & general helper functions.
 */

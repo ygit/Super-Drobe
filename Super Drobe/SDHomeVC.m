@@ -14,9 +14,12 @@
 #import "iCarousel.h"
 #import "SDDataHelper.h"
 #import "SDBookmarksVC.h"
+#import "UIView+Toast.h"
+#import "ELCImagePickerController.h"
 
-@interface SDHomeVC () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, iCarouselDataSource, iCarouselDelegate>{
+@interface SDHomeVC () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, ELCImagePickerControllerDelegate, iCarouselDataSource, iCarouselDelegate>{
     iCarousel *lastSelectedCarousel;
+    UIBarButtonItem *camBtn;
 }
 
 @property (nonatomic, strong) NSArray *shirtArr;
@@ -62,7 +65,7 @@
                                                                style:UIBarButtonItemStylePlain
                                                               target:self action:@selector(showBookmarks:)];
     
-    UIBarButtonItem *camBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera
+    camBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera
                                                                             target:self
                                                                             action:@selector(showAddOptions:)];
     self.navigationItem.rightBarButtonItems = @[camBtn, showBookmarkBtn];
@@ -89,23 +92,23 @@
     shirtCarousel = [[iCarousel alloc] init];
     [shirtCarousel setDelegate:self];
     [shirtCarousel setDataSource:self];
-    [shirtCarousel setType:iCarouselTypeTimeMachine];
+    [shirtCarousel setType:iCarouselTypeLinear];
     [self.view addSubview:shirtCarousel];
     
     pantCarousel = [[iCarousel alloc] init];
     [pantCarousel setDelegate:self];
     [pantCarousel setDataSource:self];
-    [pantCarousel setType:iCarouselTypeInvertedTimeMachine];
+    [pantCarousel setType:iCarouselTypeLinear];
     [self.view addSubview:pantCarousel];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fetchShirts)
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fetchShirts:)
                                                  name:ADDED_NEW_SHIRT_UPDATE_VIEW object:nil];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fetchPants)
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fetchPants:)
                                                  name:ADDED_NEW_PANT_UPDATE_VIEW object:nil];
     
     self.navigationController.toolbarHidden = NO;
@@ -114,8 +117,8 @@
                                        forToolbarPosition:UIBarPositionTop barMetrics:UIBarMetricsDefault];
 
     
-    [self fetchShirts];
-    [self fetchPants];
+    [self fetchShirts:nil];
+    [self fetchPants:nil];
 }
 
 - (void)viewWillLayoutSubviews{
@@ -131,13 +134,15 @@
     //toolbar shadow
     UIBezierPath *loginViewShadow = [UIBezierPath bezierPathWithRect:self.navigationController.toolbar.bounds];
     self.navigationController.toolbar.layer.masksToBounds = NO;
-    self.navigationController.toolbar.layer.shadowColor = [[UIColor blackColor] colorWithAlphaComponent:0.5].CGColor;
-    self.navigationController.toolbar.layer.shadowOffset = CGSizeMake(0.0f, 0.0f);
+    self.navigationController.toolbar.layer.shadowColor   = [[UIColor blackColor] colorWithAlphaComponent:0.5].CGColor;
+    self.navigationController.toolbar.layer.shadowOffset  = CGSizeMake(0.0f, 0.0f);
     self.navigationController.toolbar.layer.shadowOpacity = 0.5f;
-    self.navigationController.toolbar.layer.shadowPath = loginViewShadow.CGPath;
+    self.navigationController.toolbar.layer.shadowPath    = loginViewShadow.CGPath;
     
-    shirtCarousel.frame = CGRectMake(0, NAVBAR_HEIGHT + 30, self.view.frame.size.width, 160);
-    pantCarousel.frame = CGRectMake(0, shirtCarousel.frame.origin.y + shirtCarousel.frame.size.height + 45, self.view.frame.size.width, 160);
+    shirtCarousel.frame  = CGRectMake(0, 0, self.view.frame.size.width, 220);
+    shirtCarousel.center = CGPointMake(self.view.center.x, self.view.center.y - 130);
+    pantCarousel.frame   = CGRectMake(0, 0, self.view.frame.size.width, 220);
+    pantCarousel.center  = CGPointMake(self.view.center.x, self.view.center.y + 130);
 }
 
 
@@ -147,6 +152,26 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
+    if (shirtArr.count == 0) {
+        
+        [self.view makeToast:@"Please add a few shirts"
+                    duration:5.0
+                    position:[NSValue valueWithCGPoint:CGPointMake(self.view.center.x,
+                                            self.view.center.y + (self.view.frame.size.height - self.view.center.y)/2)]
+                       title:@"Uh oh! Seems like you don't have any shirts!"
+                       image:[UIImage imageNamed:@"shirtImg"]
+                       style:nil
+                  completion:^(BOOL didTap) {
+                      
+                      lastSelectedCarousel = shirtCarousel;
+                      [self showCameraOptionsWithTitle:ADD_SHIRTS];
+                  }];
+    }
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
@@ -154,16 +179,83 @@
 
 #pragma mark - Data Helpers
 
-- (void)fetchShirts{
+- (void)fetchShirts:(NSNotification *)notification{
+   
     shirtArr = [SDDataHelper getAllShirtsByBookmark:NO];
     [shirtCarousel reloadData];
-    if (shirtArr.count> 0) [shirtCarousel scrollToItemAtIndex:(shirtArr.count-1) animated:YES];
+    if (shirtArr.count> 0) [shirtCarousel scrollToItemAtIndex:(shirtArr.count-1)
+                                                     animated:(notification) ? YES : NO];
+    
+    if (shirtArr.count < 3 && shirtCounter < 2) {
+        shirtCounter++;
+        if (shirtArr.count > shirtCarousel.currentItemIndex) {
+            
+            Shirt *shirt = shirtArr[shirtCarousel.currentItemIndex];
+        
+            [self.view makeToast:@"Please add more shirts"
+                        duration:5.0
+                        position:[NSValue valueWithCGPoint:CGPointMake(self.view.center.x,
+                                                                       self.view.center.y + (self.view.frame.size.height - self.view.center.y)/2)]
+                           title:@"Hmmm! It's better if you add a few more shirts"
+                           image:[UIImage imageWithData:shirt.img]
+                           style:nil
+                      completion:^(BOOL didTap) {
+                          
+                          lastSelectedCarousel = shirtCarousel;
+                          [self showCameraOptionsWithTitle:ADD_SHIRTS];
+                      }];
+        }
+    }
+    else{
+        [self fetchPants:nil];
+        [self performPantChecks];
+    }
 }
 
-- (void)fetchPants{
+- (void)fetchPants:(NSNotification *)notification{
     pantArr = [SDDataHelper getAllPantsByBookmark:NO];
     [pantCarousel reloadData];
-    if (pantArr.count> 0) [pantCarousel scrollToItemAtIndex:(pantArr.count-1) animated:YES];
+    if (pantArr.count> 0) [pantCarousel scrollToItemAtIndex:(pantArr.count-1)
+                                                   animated:(notification) ? YES : NO];
+}
+
+- (void)performPantChecks{
+    
+    if (pantArr.count == 0) {
+        
+        [self.view makeToast:@"Please add a few pants"
+                    duration:5.0
+                    position:[NSValue valueWithCGPoint:CGPointMake(self.view.center.x,
+                                                                   self.view.center.y + (self.view.frame.size.height - self.view.center.y)/2)]
+                       title:@"Uh oh! Seems like you don't have any pants!"
+                       image:[UIImage imageNamed:@"pantImg"]
+                       style:nil
+                  completion:^(BOOL didTap) {
+                      
+                      lastSelectedCarousel = pantCarousel;
+                      [self showCameraOptionsWithTitle:ADD_PANTS];
+                  }];
+    }
+    else if (pantArr.count < 3 && pantCounter < 2){
+        pantCounter++;
+        if (pantArr.count > pantCarousel.currentItemIndex) {
+            
+            Pant *pant = pantArr[pantCarousel.currentItemIndex];
+            
+            [self.view makeToast:@"Please add more pants"
+                        duration:5.0
+                        position:[NSValue valueWithCGPoint:CGPointMake(self.view.center.x,
+                                                                       self.view.center.y + (self.view.frame.size.height - self.view.center.y)/2)]
+                           title:@"Hmmm! It's better if you add a few more pants"
+                           image:[UIImage imageWithData:pant.img]
+                           style:nil
+                      completion:^(BOOL didTap) {
+                          
+                          lastSelectedCarousel = pantCarousel;
+                          [self showCameraOptionsWithTitle:ADD_PANTS];
+                      }];
+        }
+    }
 }
 
 
@@ -172,8 +264,86 @@
 - (void)performLogout:(id)sender{
 
     [[FBSDKLoginManager new] logOut];
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    [self.navigationController popToRootViewControllerAnimated:NO];
 }
+
+- (void)showBookmarks:(id)sender{
+    
+    NSArray *bookmarkShirtArr = [SDDataHelper getAllShirtsByBookmark:YES];
+    NSArray *bookmarkPantArr  = [SDDataHelper getAllPantsByBookmark:YES];
+    
+    if ((bookmarkShirtArr.count > 0) && (bookmarkPantArr.count > 0)) {
+        SDBookmarksVC *bookmarkVC = [[SDBookmarksVC alloc] init];
+        bookmarkVC.shirtArr = bookmarkShirtArr;
+        bookmarkVC.pantArr = bookmarkPantArr;
+        [self.navigationController pushViewController:bookmarkVC animated:YES];
+    }
+}
+
+- (void)toggleBookmarks:(id)sender{
+    
+    if (shirtArr.count > 0 && pantArr.count > 0) {
+        BOOL shirt = [SDDataHelper toggleShirtBookmark:[shirtArr objectAtIndex:shirtCarousel.currentItemIndex]];
+        BOOL pant = [SDDataHelper togglePantBookmark:[pantArr objectAtIndex:pantCarousel.currentItemIndex]];
+        
+        if (shirt && pant) {
+            [[[UIAlertView alloc] initWithTitle:@"" message:@"Pair added to Bookmarks"
+                                       delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+        }
+        else if (!shirt && !pant){
+            [[[UIAlertView alloc] initWithTitle:@"" message:@"Pair removed from Bookmarks"
+                                       delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+        }
+    }
+    else{
+        [self.view makeToast:@"Please add a pair of shirt & pant to Bookmark"
+                    duration:3.0 position:CSToastPositionCenter];
+    }
+}
+
+- (void)addToDislike:(id)sender{
+    
+    if (shirtArr.count > 0 && pantArr.count > 0) {
+        NSInteger shirtIndex = arc4random() % shirtArr.count;
+        [shirtCarousel scrollToItemAtIndex:shirtIndex animated:YES];
+        
+        NSInteger pantIndex = arc4random() % pantArr.count;
+        [pantCarousel scrollToItemAtIndex:pantIndex animated:YES];
+    }
+}
+
+- (void)share:(id)sender{
+    
+    UIImage *shirt, *pant;
+    if (shirtCarousel.currentItemIndex < shirtArr.count) {
+        
+        Shirt *shirtObj = shirtArr[shirtCarousel.currentItemIndex];
+        
+        shirt = [UIImage imageWithData:shirtObj.img];
+    }
+    
+    if (pantCarousel.currentItemIndex < pantArr.count) {
+        
+        Pant *pantObj = pantArr[pantCarousel.currentItemIndex];
+        
+        pant = [UIImage imageWithData:pantObj.img];
+    }
+    
+    if (shirt && pant) {
+        UIActivityViewController *activityViewController = [[UIActivityViewController alloc]
+                                                            initWithActivityItems:[NSArray arrayWithObjects:shirt, pant, nil]
+                                                            applicationActivities:nil];
+        
+        [self.navigationController presentViewController:activityViewController animated:YES completion:nil];
+    }
+    else{
+        [self.view makeToast:@"Please first add a pair of shirt & pant to Share"
+                    duration:3.0 position:CSToastPositionCenter];
+    }
+}
+
+
+#pragma mark - Picker Helpers
 
 - (void)showAddOptions:(id)sender{
  
@@ -186,20 +356,23 @@
         [self dismissViewControllerAnimated:YES completion:nil];
     }]];
     
-    [actionSheet addAction:[UIAlertAction actionWithTitle:@"Add Shirts / T-Shirts" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+    [actionSheet addAction:[UIAlertAction actionWithTitle:ADD_SHIRTS style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         
         lastSelectedCarousel = shirtCarousel;
-        [self showCameraOptionsWithTitle:@"Add Shirts / T-Shirts"];
+        [self showCameraOptionsWithTitle:ADD_SHIRTS];
     }]];
     
-    [actionSheet addAction:[UIAlertAction actionWithTitle:@"Add Pants" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+    [actionSheet addAction:[UIAlertAction actionWithTitle:ADD_PANTS style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         
         lastSelectedCarousel = pantCarousel;
-        [self showCameraOptionsWithTitle:@"Add Pants"];
+        [self showCameraOptionsWithTitle:ADD_PANTS];
     }]];
     
     [self presentViewController:actionSheet animated:YES completion:nil];
 }
+
+static int shirtCounter = 0;
+static int pantCounter = 0;
 
 - (void)showCameraOptionsWithTitle:(NSString *)title{
     
@@ -207,22 +380,103 @@
                                                                          message:@""
                                                                   preferredStyle:UIAlertControllerStyleActionSheet];
     
-    [actionSheet addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel
+                                                  handler:^(UIAlertAction *action) {
         
-        [self dismissViewControllerAnimated:YES completion:nil];
+            if (shirtArr.count == 0) {
+              
+                [self.view makeToast:@"You can also add shirts via the camera button on top!"
+                            duration:4.0
+                            position:[NSValue valueWithCGPoint:CGPointMake(self.view.center.x,
+                                                                (self.view.frame.size.height - self.view.center.y)/2)]
+                               title:@"You know!"
+                               image:[UIImage imageNamed:@"shirtImg"]
+                               style:nil
+                          completion:^(BOOL didTap) {
+                              [UIView animateWithDuration:0.5 animations:^{
+                                  camBtn.tintColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.3];
+                              } completion:^(BOOL finished) {
+                                  camBtn.tintColor = [[UIColor lightGrayColor] colorWithAlphaComponent:1];
+                              }];
+                          }];
+            }
+            else if (shirtArr.count < 3 && shirtCounter < 2){
+                shirtCounter++;
+                if (shirtArr.count > shirtCarousel.currentItemIndex) {
+                    
+                    Shirt *shirt = shirtArr[shirtCarousel.currentItemIndex];
+                    
+                    [self.view makeToast:@"Please add more shirts"
+                                duration:5.0
+                                position:[NSValue valueWithCGPoint:CGPointMake(self.view.center.x,
+                                                                               self.view.center.y + (self.view.frame.size.height - self.view.center.y)/2)]
+                                   title:@"Hmmm! It's better if you add a few more shirts"
+                                   image:[UIImage imageWithData:shirt.img]
+                                   style:nil
+                              completion:^(BOOL didTap) {
+                                  
+                                  lastSelectedCarousel = shirtCarousel;
+                                  [self showCameraOptionsWithTitle:ADD_SHIRTS];
+                              }];
+                }
+            }
+            else if (pantArr.count == 0){
+                
+                [self.view makeToast:@"You can also add pants via the camera button on top!"
+                            duration:4.0
+                            position:[NSValue valueWithCGPoint:CGPointMake(self.view.center.x,
+                                                                           (self.view.frame.size.height - self.view.center.y)/2)]
+                               title:@"You know!"
+                               image:[UIImage imageNamed:@"pantImg"]
+                               style:nil
+                          completion:^(BOOL didTap) {
+                              [UIView animateWithDuration:0.5 animations:^{
+                                  camBtn.tintColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.3];
+                              } completion:^(BOOL finished) {
+                                  camBtn.tintColor = [[UIColor lightGrayColor] colorWithAlphaComponent:1];
+                              }];
+                          }];
+            }
+            else if (pantArr.count < 3 && pantCounter < 2){
+                pantCounter++;
+                if (pantArr.count > pantCarousel.currentItemIndex) {
+                    
+                    Pant *pant = pantArr[pantCarousel.currentItemIndex];
+                    
+                    [self.view makeToast:@"Please add more pants"
+                                duration:5.0
+                                position:[NSValue valueWithCGPoint:CGPointMake(self.view.center.x,
+                                                                               self.view.center.y + (self.view.frame.size.height - self.view.center.y)/2)]
+                                   title:@"Hmmm! It's better if you add a few more pants"
+                                   image:[UIImage imageWithData:pant.img]
+                                   style:nil
+                              completion:^(BOOL didTap) {
+                                  
+                                  lastSelectedCarousel = pantCarousel;
+                                  [self showCameraOptionsWithTitle:ADD_PANTS];
+                              }];
+                }
+            }
     }]];
     
-    [actionSheet addAction:[UIAlertAction actionWithTitle:@"Choose from Gallery" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        
-        UIImagePickerController * picker = [[UIImagePickerController alloc] init];
-        picker.delegate = self;
-            
-        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-        
-        [self presentViewController:picker animated:YES completion:nil];
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"Choose from Gallery" style:UIAlertActionStyleDefault
+                                                  handler:^(UIAlertAction *action) {
+                                           
+          ELCImagePickerController *elcPicker = [[ELCImagePickerController alloc] initImagePicker];
+          
+          elcPicker.maximumImagesCount = 100;
+          elcPicker.returnsOriginalImage = NO;
+          elcPicker.returnsImage = YES;
+          elcPicker.onOrder = YES;
+          elcPicker.mediaTypes = @[(NSString *)kUTTypeImage];
+          
+          elcPicker.imagePickerDelegate = self;
+          
+          [self presentViewController:elcPicker animated:YES completion:nil];
     }]];
     
-    [actionSheet addAction:[UIAlertAction actionWithTitle:@"Take Photo" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"Take Photo" style:UIAlertActionStyleDefault
+                                                  handler:^(UIAlertAction *action) {
         
         UIImagePickerController * picker = [[UIImagePickerController alloc] init];
         picker.delegate = self;
@@ -251,90 +505,38 @@
     }
 }
 
-- (void)showBookmarks:(id)sender{
-    
-    NSArray *bookmarkShirtArr = [SDDataHelper getAllShirtsByBookmark:YES];
-    NSArray *bookmarkPantArr  = [SDDataHelper getAllPantsByBookmark:YES];
-    
-    if ((bookmarkShirtArr.count > 0) && (bookmarkPantArr.count > 0)) {
-        SDBookmarksVC *bookmarkVC = [[SDBookmarksVC alloc] init];
-        bookmarkVC.shirtArr = bookmarkShirtArr;
-        bookmarkVC.pantArr = bookmarkPantArr;
-        [self.navigationController pushViewController:bookmarkVC animated:YES];
-    }
-}
+- (void)elcImagePickerController:(ELCImagePickerController *)picker didFinishPickingMediaWithInfo:(NSArray *)info{
 
-- (void)toggleBookmarks:(id)sender{
+    [self dismissViewControllerAnimated:YES completion:nil];
     
-    if (shirtArr.count > 0 && pantArr.count > 0) {
-        BOOL shirt = [SDDataHelper toggleShirtBookmark:[shirtArr objectAtIndex:shirtCarousel.currentItemIndex]];
-        BOOL pant = [SDDataHelper togglePantBookmark:[pantArr objectAtIndex:pantCarousel.currentItemIndex]];
-        
-        if (shirt && pant) {
-            [[[UIAlertView alloc] initWithTitle:@"" message:@"Pair added to bookmarks"
-                                       delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
-        }
-        else if (!shirt && !pant){
-            [[[UIAlertView alloc] initWithTitle:@"" message:@"Pair removed from bookmarks"
-                                       delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+    for (NSDictionary *dict in info) {
+        if ([dict objectForKey:UIImagePickerControllerMediaType] == ALAssetTypePhoto){
+            if ([dict objectForKey:UIImagePickerControllerOriginalImage]){
+              
+                UIImage* image=[dict objectForKey:UIImagePickerControllerOriginalImage];
+                
+                if (lastSelectedCarousel == shirtCarousel) {
+                    [SDDataHelper addToShirts:image];
+                }
+                else{
+                    [SDDataHelper addToPants:image];
+                }
+            }
         }
     }
-    else{
-        [[[UIAlertView alloc] initWithTitle:@"" message:@"Please add a pair of shirts & pants to Bookmark"
-                                   delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
-    }
-}
-
-- (void)addToDislike:(id)sender{
-
-    NSInteger shirtIndex = arc4random() % shirtArr.count;
-    [shirtCarousel scrollToItemAtIndex:shirtIndex animated:YES];
-    
-    NSInteger pantIndex = arc4random() % pantArr.count;
-    [pantCarousel scrollToItemAtIndex:pantIndex animated:YES];
-}
-
-- (void)share:(id)sender{
-   
-    UIImage *shirt, *pant;
-    if (shirtCarousel.currentItemIndex < shirtArr.count) {
-        
-        Shirt *shirtObj = shirtArr[shirtCarousel.currentItemIndex];
-        
-        shirt = [UIImage imageWithData:shirtObj.img];
-    }
-    
-    if (pantCarousel.currentItemIndex < pantArr.count) {
-        
-        Pant *pantObj = pantArr[pantCarousel.currentItemIndex];
-        
-        pant = [UIImage imageWithData:pantObj.img];
-    }
-    
-    if (shirt && pant) {
-        UIActivityViewController *activityViewController = [[UIActivityViewController alloc]
-                                                            initWithActivityItems:[NSArray arrayWithObjects:shirt, pant, nil]
-                                                            applicationActivities:nil];
-        
-        [self.navigationController presentViewController:activityViewController animated:YES completion:nil];
-    }
-    else{
-        [[[UIAlertView alloc] initWithTitle:@"" message:@"Please add a pair of shirts & pants to Share"
-                                   delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
-    }
 }
 
 
-#pragma mark - UI Helpers
+- (void)elcImagePickerControllerDidCancel:(ELCImagePickerController *)picker{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+#pragma mark - Carousel Helpers
 
 - (NSInteger)numberOfItemsInCarousel:(iCarousel *)carousel{
     
-    if (carousel == shirtCarousel) {
-        return (shirtArr.count == 0) ? 1 : shirtArr.count;
-    }
-    else{
-        return (pantArr.count == 0) ? 1 : pantArr.count;
-    }
+    return (carousel == shirtCarousel) ? shirtArr.count : pantArr.count;
 }
 
 - (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSInteger)index reusingView:(nullable UIView *)view{
@@ -342,7 +544,7 @@
     UIImageView *img;
     if (view) {
         for (UIView *subview in view.subviews) {
-            if (subview.tag == carousel.tag) {
+            if (subview.tag == 10) {
                 img = (UIImageView *)subview;
             }
         }
@@ -350,47 +552,38 @@
     else{
         view = [[UIView alloc] init];
         img = [[UIImageView alloc] init];
-        img.contentMode = UIViewContentModeScaleAspectFit;
-        
+        img.contentMode = UIViewContentModeScaleAspectFill;
+        img.clipsToBounds = YES;
+        img.tag = 10;
         [view addSubview:img];
     }
     
-    view.frame = CGRectMake(0, 0, 240, 160);
-    img.frame = CGRectMake(0, 0, 220, 160);
+    view.frame = CGRectMake(0, 0, 240, 220);
+    img.frame = CGRectMake(0, 0, 220, 220);
     img.center = view.center;
+    
+    img.layer.cornerRadius = 10;
+    img.layer.borderWidth  = 2.0f;
+    img.layer.borderColor  = [[UIColor whiteColor] CGColor];
     
     if (carousel == shirtCarousel) {
        
-        if (shirtArr.count == 0) {   //zero shirts
-            img.image = [UIImage imageNamed:@"camera"];
-        }
-        else{
-            if (index < shirtArr.count) {
-                
-                Shirt *shirt = shirtArr[index];
-                
-                img.image = [UIImage imageWithData:shirt.img];
-            }
+        if (index < shirtArr.count) {
+            
+            Shirt *shirt = shirtArr[index];
+            
+            img.image = [UIImage imageWithData:shirt.img];
         }
     }
     else{
-        if (pantArr.count == 0) {    //zero pants
-            img.image = [UIImage imageNamed:@"camera"];
-        }
-        else{
-            if (index < pantArr.count) {
-                
-                Pant *pant = pantArr[index];
-                img.image = [UIImage imageWithData:pant.img];
-            }
+        if (index < pantArr.count) {
+            
+            Pant *pant = pantArr[index];
+            img.image = [UIImage imageWithData:pant.img];
         }
     }
     
     return view;
-}
-
-- (void)carouselDidEndScrollingAnimation:(iCarousel *)carousel{
-    
 }
 
 - (void)carousel:(iCarousel *)carousel didSelectItemAtIndex:(NSInteger)index{
@@ -398,13 +591,13 @@
     if (carousel == shirtCarousel) {
         if (shirtArr.count == 0) {
             lastSelectedCarousel = shirtCarousel;
-            [self showCameraOptionsWithTitle:@"Add Shirts / T-Shirts"];
+            [self showCameraOptionsWithTitle:ADD_SHIRTS];
         }
     }
     else{
         if (pantArr.count == 0) {
             lastSelectedCarousel = pantCarousel;
-            [self showCameraOptionsWithTitle:@"Add Pants"];
+            [self showCameraOptionsWithTitle:ADD_PANTS];
         }
     }
 }

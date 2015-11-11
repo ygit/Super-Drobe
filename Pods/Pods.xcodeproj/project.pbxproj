@@ -6,43 +6,205 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		08586A0855C7160AAD1B8E2FC93DECD8 /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 77623AA3D7FDD70F05FCB775D06E9F38 /* UIView+Toast.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		44FEE5F925F6077383C703180C1F46DA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 258B0C8029B3982F03A30ED9FB271283 /* Foundation.framework */; };
+		45EAAD9A906AEA9A617113AAC1970B47 /* UIView+Toast.h in Headers */ = {isa = PBXBuildFile; fileRef = DA87CDF4BFC0A48127D3CE947C5B1EBA /* UIView+Toast.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8E1B7AE052F78CCDB6896B862BC4C8F3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B18F24645AA4D651DFC7B69A3A0833DB /* QuartzCore.framework */; };
+		92DADD18885038A88F7B59C4377B418D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 258B0C8029B3982F03A30ED9FB271283 /* Foundation.framework */; };
+		9FA47EE1DADED94D554700FEAB1DF363 /* Toast-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D19CBEF4EC94B462AB24B445CD0A39 /* Toast-dummy.m */; };
+		AF386CF5C39256269AF95D58BA7FC4CC /* Pods-Super Drobe-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 29C4B6C70019F8F242E9655E060BAE45 /* Pods-Super Drobe-dummy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		391212D55F16B90F9D2B1B30385C1EA4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C692A2C724A5D5690E96228EF78C8341;
+			remoteInfo = Toast;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		1A32199B7D6702D3A0615155300AF067 /* libPods-Super Drobe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Super Drobe.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DE960A857BFF1BF3DFC6CC994303EBA /* Pods-Super Drobe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Super Drobe.debug.xcconfig"; sourceTree = "<group>"; };
+		1ECE5CB7C68E359C0AE1A78969D79E0F /* Pods-Super Drobe-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Super Drobe-resources.sh"; sourceTree = "<group>"; };
+		258B0C8029B3982F03A30ED9FB271283 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		29C4B6C70019F8F242E9655E060BAE45 /* Pods-Super Drobe-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Super Drobe-dummy.m"; sourceTree = "<group>"; };
+		43850C0F1CB69230CADBE13A2FE314B5 /* Toast-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Toast-prefix.pch"; sourceTree = "<group>"; };
+		5AC2D4035525BB907415307448A4DC72 /* Pods-Super Drobe-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Super Drobe-frameworks.sh"; sourceTree = "<group>"; };
+		6A2CD242D8427843B02B028BF7BC2EB3 /* Pods-Super Drobe-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Super Drobe-acknowledgements.plist"; sourceTree = "<group>"; };
+		77623AA3D7FDD70F05FCB775D06E9F38 /* UIView+Toast.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+Toast.m"; path = "Toast/Toast/UIView+Toast.m"; sourceTree = "<group>"; };
+		7E1DB5745C067F33FB0641CD20F99165 /* Toast.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Toast.xcconfig; sourceTree = "<group>"; };
+		84F4C617E77F66E9B46B120752645841 /* libToast.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libToast.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		91D19CBEF4EC94B462AB24B445CD0A39 /* Toast-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Toast-dummy.m"; sourceTree = "<group>"; };
+		A705B0C6F5BE1F0DB6AE055E63E7DA2B /* Pods-Super Drobe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Super Drobe.release.xcconfig"; sourceTree = "<group>"; };
+		B18F24645AA4D651DFC7B69A3A0833DB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		DA87CDF4BFC0A48127D3CE947C5B1EBA /* UIView+Toast.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+Toast.h"; path = "Toast/Toast/UIView+Toast.h"; sourceTree = "<group>"; };
+		DBE1AB78CAC452DB5D23437B7D798115 /* Pods-Super Drobe-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Super Drobe-acknowledgements.markdown"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFrameworksBuildPhase section */
+		8B43CCBC6E35C88F98D8A44F2DB5846C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92DADD18885038A88F7B59C4377B418D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9BD37EE7AC0ACAFC0B654D8D8C8174EB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44FEE5F925F6077383C703180C1F46DA /* Foundation.framework in Frameworks */,
+				8E1B7AE052F78CCDB6896B862BC4C8F3 /* QuartzCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
 /* Begin PBXGroup section */
-		09C5E90726D2521A760312DBF50D9358 /* Products */ = {
+		298EDD77214EBA4B9ABC9074E9D064C4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
+				1A32199B7D6702D3A0615155300AF067 /* libPods-Super Drobe.a */,
+				84F4C617E77F66E9B46B120752645841 /* libToast.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		0F8D2E47FE03D3B91B51069F7C273AF4 /* Frameworks */ = {
+		328A08D994481184C929D2CC9DEC6F29 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
+				7E1DB5745C067F33FB0641CD20F99165 /* Toast.xcconfig */,
+				91D19CBEF4EC94B462AB24B445CD0A39 /* Toast-dummy.m */,
+				43850C0F1CB69230CADBE13A2FE314B5 /* Toast-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Toast";
+			sourceTree = "<group>";
+		};
+		3926C638AD0708942C88C2BC89261735 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				258B0C8029B3982F03A30ED9FB271283 /* Foundation.framework */,
+				B18F24645AA4D651DFC7B69A3A0833DB /* QuartzCore.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3926C638AD0708942C88C2BC89261735 /* iOS */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4EED7B87ED3AB02CBC380B79C45F37FA /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				DA87CDF4BFC0A48127D3CE947C5B1EBA /* UIView+Toast.h */,
+				77623AA3D7FDD70F05FCB775D06E9F38 /* UIView+Toast.m */,
+				328A08D994481184C929D2CC9DEC6F29 /* Support Files */,
+			);
+			path = Toast;
+			sourceTree = "<group>";
+		};
+		5ADF52BA933FB457DCC27EAA52C7ECF9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4EED7B87ED3AB02CBC380B79C45F37FA /* Toast */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
-				0F8D2E47FE03D3B91B51069F7C273AF4 /* Frameworks */,
-				09C5E90726D2521A760312DBF50D9358 /* Products */,
-				F6CCA5D896907CE7506C37FD31FC265A /* Targets Support Files */,
+				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
+				5ADF52BA933FB457DCC27EAA52C7ECF9 /* Pods */,
+				298EDD77214EBA4B9ABC9074E9D064C4 /* Products */,
+				949D2A46F006B4F33594D620B3A71B39 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		F6CCA5D896907CE7506C37FD31FC265A /* Targets Support Files */ = {
+		8EA4D5525C98CCBD1941097A8E310065 /* Pods-Super Drobe */ = {
 			isa = PBXGroup;
 			children = (
+				DBE1AB78CAC452DB5D23437B7D798115 /* Pods-Super Drobe-acknowledgements.markdown */,
+				6A2CD242D8427843B02B028BF7BC2EB3 /* Pods-Super Drobe-acknowledgements.plist */,
+				29C4B6C70019F8F242E9655E060BAE45 /* Pods-Super Drobe-dummy.m */,
+				5AC2D4035525BB907415307448A4DC72 /* Pods-Super Drobe-frameworks.sh */,
+				1ECE5CB7C68E359C0AE1A78969D79E0F /* Pods-Super Drobe-resources.sh */,
+				1DE960A857BFF1BF3DFC6CC994303EBA /* Pods-Super Drobe.debug.xcconfig */,
+				A705B0C6F5BE1F0DB6AE055E63E7DA2B /* Pods-Super Drobe.release.xcconfig */,
+			);
+			name = "Pods-Super Drobe";
+			path = "Target Support Files/Pods-Super Drobe";
+			sourceTree = "<group>";
+		};
+		949D2A46F006B4F33594D620B3A71B39 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				8EA4D5525C98CCBD1941097A8E310065 /* Pods-Super Drobe */,
 			);
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		5058DF2BC1BADFB6C2992455CF103E44 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45EAAD9A906AEA9A617113AAC1970B47 /* UIView+Toast.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		AAF0486EF50B91AC4AD234E69B379172 /* Pods-Super Drobe */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4E4EC50A948999D2C24E9168C6D3224F /* Build configuration list for PBXNativeTarget "Pods-Super Drobe" */;
+			buildPhases = (
+				F06C9135D01642A9B90367BA8813B594 /* Sources */,
+				8B43CCBC6E35C88F98D8A44F2DB5846C /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0CB84E9D0FCF8E5BAEB21A96FD8E71C8 /* PBXTargetDependency */,
+			);
+			name = "Pods-Super Drobe";
+			productName = "Pods-Super Drobe";
+			productReference = 1A32199B7D6702D3A0615155300AF067 /* libPods-Super Drobe.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		C692A2C724A5D5690E96228EF78C8341 /* Toast */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3B02A53FBE872254C1F23D294013C856 /* Build configuration list for PBXNativeTarget "Toast" */;
+			buildPhases = (
+				CEDEDABB84FDA64751BA3428E3DF7828 /* Sources */,
+				9BD37EE7AC0ACAFC0B654D8D8C8174EB /* Frameworks */,
+				5058DF2BC1BADFB6C2992455CF103E44 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Toast;
+			productName = Toast;
+			productReference = 84F4C617E77F66E9B46B120752645841 /* libToast.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
@@ -59,15 +221,116 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 09C5E90726D2521A760312DBF50D9358 /* Products */;
+			productRefGroup = 298EDD77214EBA4B9ABC9074E9D064C4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				AAF0486EF50B91AC4AD234E69B379172 /* Pods-Super Drobe */,
+				C692A2C724A5D5690E96228EF78C8341 /* Toast */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXSourcesBuildPhase section */
+		CEDEDABB84FDA64751BA3428E3DF7828 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9FA47EE1DADED94D554700FEAB1DF363 /* Toast-dummy.m in Sources */,
+				08586A0855C7160AAD1B8E2FC93DECD8 /* UIView+Toast.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F06C9135D01642A9B90367BA8813B594 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF386CF5C39256269AF95D58BA7FC4CC /* Pods-Super Drobe-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0CB84E9D0FCF8E5BAEB21A96FD8E71C8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Toast;
+			target = C692A2C724A5D5690E96228EF78C8341 /* Toast */;
+			targetProxy = 391212D55F16B90F9D2B1B30385C1EA4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		155EC103E8202E3EE412BF413B0774BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1DE960A857BFF1BF3DFC6CC994303EBA /* Pods-Super Drobe.debug.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		3D846FB8C2AAAEFBF4BF7C8D76BABD8D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7E1DB5745C067F33FB0641CD20F99165 /* Toast.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Toast/Toast-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		45EE8379885B189C4F131185EF9C87AE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7E1DB5745C067F33FB0641CD20F99165 /* Toast.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Toast/Toast-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		A101B1987BCEB34BDE13848AF3A0EC0F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A705B0C6F5BE1F0DB6AE055E63E7DA2B /* Pods-Super Drobe.release.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		A70CDAD61F90AC503C7D04CC22DA2923 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -149,6 +412,24 @@
 			buildConfigurations = (
 				A70CDAD61F90AC503C7D04CC22DA2923 /* Debug */,
 				FB45FFD90572718D82AB9092B750F0CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3B02A53FBE872254C1F23D294013C856 /* Build configuration list for PBXNativeTarget "Toast" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3D846FB8C2AAAEFBF4BF7C8D76BABD8D /* Debug */,
+				45EE8379885B189C4F131185EF9C87AE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4E4EC50A948999D2C24E9168C6D3224F /* Build configuration list for PBXNativeTarget "Pods-Super Drobe" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				155EC103E8202E3EE412BF413B0774BE /* Debug */,
+				A101B1987BCEB34BDE13848AF3A0EC0F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

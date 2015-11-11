@@ -7,8 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EC04D1B91BF29170005EDD81 /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC04D1B61BF29170005EDD81 /* FXBlurView.m */; };
+		3D715B227EDE034EA86236A8 /* libPods-Super Drobe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 77CE6C1D094E6AA3A14E5351 /* libPods-Super Drobe.a */; };
 		EC04D1BA1BF29170005EDD81 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = EC04D1B81BF29170005EDD81 /* iCarousel.m */; };
+		EC2B35491BF2C21B009BC0D7 /* ELCAlbumPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2B35391BF2C21B009BC0D7 /* ELCAlbumPickerController.m */; };
+		EC2B354A1BF2C21B009BC0D7 /* ELCAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2B353B1BF2C21B009BC0D7 /* ELCAsset.m */; };
+		EC2B354B1BF2C21B009BC0D7 /* ELCAssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2B353D1BF2C21B009BC0D7 /* ELCAssetCell.m */; };
+		EC2B354C1BF2C21B009BC0D7 /* ELCAssetTablePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2B35411BF2C21B009BC0D7 /* ELCAssetTablePicker.m */; };
+		EC2B354D1BF2C21B009BC0D7 /* ELCConsole.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2B35431BF2C21B009BC0D7 /* ELCConsole.m */; };
+		EC2B354E1BF2C21B009BC0D7 /* ELCImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2B35451BF2C21B009BC0D7 /* ELCImagePickerController.m */; };
+		EC2B354F1BF2C21B009BC0D7 /* ELCOverlayImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2B35481BF2C21B009BC0D7 /* ELCOverlayImageView.m */; };
+		EC2B35561BF2C231009BC0D7 /* ELCAlbumPickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC2B35511BF2C231009BC0D7 /* ELCAlbumPickerController.xib */; };
+		EC2B35571BF2C231009BC0D7 /* ELCAssetPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC2B35521BF2C231009BC0D7 /* ELCAssetPicker.xib */; };
+		EC2B35581BF2C231009BC0D7 /* ELCAssetTablePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC2B35531BF2C231009BC0D7 /* ELCAssetTablePicker.xib */; };
+		EC2B35591BF2C231009BC0D7 /* Overlay.png in Resources */ = {isa = PBXBuildFile; fileRef = EC2B35541BF2C231009BC0D7 /* Overlay.png */; };
+		EC2B355A1BF2C231009BC0D7 /* Overlay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC2B35551BF2C231009BC0D7 /* Overlay@2x.png */; };
 		EC3A88301BEAC8F5001D9F2B /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC3A882D1BEAC8F5001D9F2B /* FBSDKCoreKit.framework */; };
 		EC3A88311BEAC8F5001D9F2B /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC3A882E1BEAC8F5001D9F2B /* FBSDKLoginKit.framework */; };
 		EC3A88321BEAC8F5001D9F2B /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC3A882F1BEAC8F5001D9F2B /* FBSDKShareKit.framework */; };
@@ -30,10 +42,33 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		EC04D1B51BF29170005EDD81 /* FXBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXBlurView.h; sourceTree = "<group>"; };
-		EC04D1B61BF29170005EDD81 /* FXBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXBlurView.m; sourceTree = "<group>"; };
+		679CF076F1D2422CDE3D152A /* Pods-Super Drobe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Super Drobe.release.xcconfig"; path = "Pods/Target Support Files/Pods-Super Drobe/Pods-Super Drobe.release.xcconfig"; sourceTree = "<group>"; };
+		77CE6C1D094E6AA3A14E5351 /* libPods-Super Drobe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Super Drobe.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C617C4BDD10F8B15804BCB7 /* Pods-Super Drobe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Super Drobe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Super Drobe/Pods-Super Drobe.debug.xcconfig"; sourceTree = "<group>"; };
 		EC04D1B71BF29170005EDD81 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
 		EC04D1B81BF29170005EDD81 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
+		EC2B35381BF2C21B009BC0D7 /* ELCAlbumPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAlbumPickerController.h; sourceTree = "<group>"; };
+		EC2B35391BF2C21B009BC0D7 /* ELCAlbumPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCAlbumPickerController.m; sourceTree = "<group>"; };
+		EC2B353A1BF2C21B009BC0D7 /* ELCAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAsset.h; sourceTree = "<group>"; };
+		EC2B353B1BF2C21B009BC0D7 /* ELCAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCAsset.m; sourceTree = "<group>"; };
+		EC2B353C1BF2C21B009BC0D7 /* ELCAssetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAssetCell.h; sourceTree = "<group>"; };
+		EC2B353D1BF2C21B009BC0D7 /* ELCAssetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCAssetCell.m; sourceTree = "<group>"; };
+		EC2B353E1BF2C21B009BC0D7 /* ELCAssetPickerFilterDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAssetPickerFilterDelegate.h; sourceTree = "<group>"; };
+		EC2B353F1BF2C21B009BC0D7 /* ELCAssetSelectionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAssetSelectionDelegate.h; sourceTree = "<group>"; };
+		EC2B35401BF2C21B009BC0D7 /* ELCAssetTablePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAssetTablePicker.h; sourceTree = "<group>"; };
+		EC2B35411BF2C21B009BC0D7 /* ELCAssetTablePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCAssetTablePicker.m; sourceTree = "<group>"; };
+		EC2B35421BF2C21B009BC0D7 /* ELCConsole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCConsole.h; sourceTree = "<group>"; };
+		EC2B35431BF2C21B009BC0D7 /* ELCConsole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCConsole.m; sourceTree = "<group>"; };
+		EC2B35441BF2C21B009BC0D7 /* ELCImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCImagePickerController.h; sourceTree = "<group>"; };
+		EC2B35451BF2C21B009BC0D7 /* ELCImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCImagePickerController.m; sourceTree = "<group>"; };
+		EC2B35461BF2C21B009BC0D7 /* ELCImagePickerHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCImagePickerHeader.h; sourceTree = "<group>"; };
+		EC2B35471BF2C21B009BC0D7 /* ELCOverlayImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCOverlayImageView.h; sourceTree = "<group>"; };
+		EC2B35481BF2C21B009BC0D7 /* ELCOverlayImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCOverlayImageView.m; sourceTree = "<group>"; };
+		EC2B35511BF2C231009BC0D7 /* ELCAlbumPickerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ELCAlbumPickerController.xib; sourceTree = "<group>"; };
+		EC2B35521BF2C231009BC0D7 /* ELCAssetPicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ELCAssetPicker.xib; sourceTree = "<group>"; };
+		EC2B35531BF2C231009BC0D7 /* ELCAssetTablePicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ELCAssetTablePicker.xib; sourceTree = "<group>"; };
+		EC2B35541BF2C231009BC0D7 /* Overlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Overlay.png; sourceTree = "<group>"; };
+		EC2B35551BF2C231009BC0D7 /* Overlay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Overlay@2x.png"; sourceTree = "<group>"; };
 		EC3A882D1BEAC8F5001D9F2B /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		EC3A882E1BEAC8F5001D9F2B /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		EC3A882F1BEAC8F5001D9F2B /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
@@ -74,19 +109,20 @@
 				EC3A88311BEAC8F5001D9F2B /* FBSDKLoginKit.framework in Frameworks */,
 				EC3A88301BEAC8F5001D9F2B /* FBSDKCoreKit.framework in Frameworks */,
 				EC3A88321BEAC8F5001D9F2B /* FBSDKShareKit.framework in Frameworks */,
+				3D715B227EDE034EA86236A8 /* libPods-Super Drobe.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		EC04D1BB1BF29174005EDD81 /* FXBlurView */ = {
+		C53786F8B1DC43CA36371C87 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				EC04D1B51BF29170005EDD81 /* FXBlurView.h */,
-				EC04D1B61BF29170005EDD81 /* FXBlurView.m */,
+				9C617C4BDD10F8B15804BCB7 /* Pods-Super Drobe.debug.xcconfig */,
+				679CF076F1D2422CDE3D152A /* Pods-Super Drobe.release.xcconfig */,
 			);
-			name = FXBlurView;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		EC04D1BC1BF2917F005EDD81 /* iCarousel */ = {
@@ -98,12 +134,50 @@
 			name = iCarousel;
 			sourceTree = "<group>";
 		};
+		EC2B35371BF2C1F0009BC0D7 /* ELCImagePickerController */ = {
+			isa = PBXGroup;
+			children = (
+				EC2B35381BF2C21B009BC0D7 /* ELCAlbumPickerController.h */,
+				EC2B35391BF2C21B009BC0D7 /* ELCAlbumPickerController.m */,
+				EC2B353A1BF2C21B009BC0D7 /* ELCAsset.h */,
+				EC2B353B1BF2C21B009BC0D7 /* ELCAsset.m */,
+				EC2B353C1BF2C21B009BC0D7 /* ELCAssetCell.h */,
+				EC2B353D1BF2C21B009BC0D7 /* ELCAssetCell.m */,
+				EC2B353E1BF2C21B009BC0D7 /* ELCAssetPickerFilterDelegate.h */,
+				EC2B353F1BF2C21B009BC0D7 /* ELCAssetSelectionDelegate.h */,
+				EC2B35401BF2C21B009BC0D7 /* ELCAssetTablePicker.h */,
+				EC2B35411BF2C21B009BC0D7 /* ELCAssetTablePicker.m */,
+				EC2B35421BF2C21B009BC0D7 /* ELCConsole.h */,
+				EC2B35431BF2C21B009BC0D7 /* ELCConsole.m */,
+				EC2B35441BF2C21B009BC0D7 /* ELCImagePickerController.h */,
+				EC2B35451BF2C21B009BC0D7 /* ELCImagePickerController.m */,
+				EC2B35461BF2C21B009BC0D7 /* ELCImagePickerHeader.h */,
+				EC2B35471BF2C21B009BC0D7 /* ELCOverlayImageView.h */,
+				EC2B35481BF2C21B009BC0D7 /* ELCOverlayImageView.m */,
+				EC2B35501BF2C222009BC0D7 /* Resources */,
+			);
+			name = ELCImagePickerController;
+			sourceTree = "<group>";
+		};
+		EC2B35501BF2C222009BC0D7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EC2B35511BF2C231009BC0D7 /* ELCAlbumPickerController.xib */,
+				EC2B35521BF2C231009BC0D7 /* ELCAssetPicker.xib */,
+				EC2B35531BF2C231009BC0D7 /* ELCAssetTablePicker.xib */,
+				EC2B35541BF2C231009BC0D7 /* Overlay.png */,
+				EC2B35551BF2C231009BC0D7 /* Overlay@2x.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		EC3EB5321BE98B5E003ADEE7 = {
 			isa = PBXGroup;
 			children = (
 				EC3EB53D1BE98B5E003ADEE7 /* Super Drobe */,
 				EC3EB53C1BE98B5E003ADEE7 /* Products */,
 				EC52225C1BEA78B7003670BF /* Frameworks */,
+				C53786F8B1DC43CA36371C87 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -172,11 +246,12 @@
 		EC52225C1BEA78B7003670BF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EC2B35371BF2C1F0009BC0D7 /* ELCImagePickerController */,
 				EC04D1BC1BF2917F005EDD81 /* iCarousel */,
-				EC04D1BB1BF29174005EDD81 /* FXBlurView */,
 				EC3A882D1BEAC8F5001D9F2B /* FBSDKCoreKit.framework */,
 				EC3A882E1BEAC8F5001D9F2B /* FBSDKLoginKit.framework */,
 				EC3A882F1BEAC8F5001D9F2B /* FBSDKShareKit.framework */,
+				77CE6C1D094E6AA3A14E5351 /* libPods-Super Drobe.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -199,9 +274,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EC3EB5551BE98B5E003ADEE7 /* Build configuration list for PBXNativeTarget "Super Drobe" */;
 			buildPhases = (
+				F82AA4269EEDB2FBD2865246 /* Check Pods Manifest.lock */,
 				EC3EB5371BE98B5E003ADEE7 /* Sources */,
 				EC3EB5381BE98B5E003ADEE7 /* Frameworks */,
 				EC3EB5391BE98B5E003ADEE7 /* Resources */,
+				B42005E3BE2196B21505CD17 /* Embed Pods Frameworks */,
+				509FE872598088C624BF8E37 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -249,13 +327,66 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC2B35581BF2C231009BC0D7 /* ELCAssetTablePicker.xib in Resources */,
+				EC2B35561BF2C231009BC0D7 /* ELCAlbumPickerController.xib in Resources */,
+				EC2B35591BF2C231009BC0D7 /* Overlay.png in Resources */,
 				EC3EB5511BE98B5E003ADEE7 /* LaunchScreen.storyboard in Resources */,
 				ECAF9B4A1BEADFF7002DE248 /* Media.xcassets in Resources */,
+				EC2B355A1BF2C231009BC0D7 /* Overlay@2x.png in Resources */,
 				EC3EB54E1BE98B5E003ADEE7 /* Assets.xcassets in Resources */,
+				EC2B35571BF2C231009BC0D7 /* ELCAssetPicker.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		509FE872598088C624BF8E37 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Super Drobe/Pods-Super Drobe-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B42005E3BE2196B21505CD17 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Super Drobe/Pods-Super Drobe-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F82AA4269EEDB2FBD2865246 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EC3EB5371BE98B5E003ADEE7 /* Sources */ = {
@@ -264,17 +395,23 @@
 			files = (
 				ECA246631BEA23F200D358B9 /* SDUtils.m in Sources */,
 				EC6414181BF0ADB300944555 /* Pant.m in Sources */,
+				EC2B354D1BF2C21B009BC0D7 /* ELCConsole.m in Sources */,
 				EC64141E1BF0B4F500944555 /* SDDataHelper.m in Sources */,
-				EC04D1B91BF29170005EDD81 /* FXBlurView.m in Sources */,
 				EC3EB5461BE98B5E003ADEE7 /* SDLoginVC.m in Sources */,
 				EC04D1BA1BF29170005EDD81 /* iCarousel.m in Sources */,
 				EC6414171BF0ADB300944555 /* Pant+CoreDataProperties.m in Sources */,
 				EC9AFBCF1BF0CCE4004C6961 /* SDBookmarksVC.m in Sources */,
+				EC2B354F1BF2C21B009BC0D7 /* ELCOverlayImageView.m in Sources */,
 				EC3EB5431BE98B5E003ADEE7 /* SDAppDelegate.m in Sources */,
+				EC2B35491BF2C21B009BC0D7 /* ELCAlbumPickerController.m in Sources */,
 				EC64141A1BF0ADB300944555 /* Shirt.m in Sources */,
 				EC3EB54C1BE98B5E003ADEE7 /* Super_Drobe.xcdatamodeld in Sources */,
+				EC2B354C1BF2C21B009BC0D7 /* ELCAssetTablePicker.m in Sources */,
 				EC6414191BF0ADB300944555 /* Shirt+CoreDataProperties.m in Sources */,
 				EC52225B1BEA6438003670BF /* SDHomeVC.m in Sources */,
+				EC2B354E1BF2C21B009BC0D7 /* ELCImagePickerController.m in Sources */,
+				EC2B354B1BF2C21B009BC0D7 /* ELCAssetCell.m in Sources */,
+				EC2B354A1BF2C21B009BC0D7 /* ELCAsset.m in Sources */,
 				EC3EB5401BE98B5E003ADEE7 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -375,6 +512,7 @@
 		};
 		EC3EB5561BE98B5E003ADEE7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C617C4BDD10F8B15804BCB7 /* Pods-Super Drobe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -392,6 +530,7 @@
 		};
 		EC3EB5571BE98B5E003ADEE7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 679CF076F1D2422CDE3D152A /* Pods-Super Drobe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

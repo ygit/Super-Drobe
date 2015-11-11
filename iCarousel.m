@@ -1065,6 +1065,7 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
         case iCarouselTypeInvertedCylinder:
         case iCarouselTypeWheel:
         case iCarouselTypeInvertedWheel:
+        case iCarouselTypeLinear:
         {
             _wrapEnabled = YES;
             break;
@@ -1073,7 +1074,6 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
         case iCarouselTypeCoverFlow2:
         case iCarouselTypeTimeMachine:
         case iCarouselTypeInvertedTimeMachine:
-        case iCarouselTypeLinear:
         case iCarouselTypeCustom:
         {
             _wrapEnabled = NO;

@@ -29,7 +29,6 @@
     else{
         NSLog(@"SDDataHelper addToShirts save error : %@", saveErr.localizedDescription);
     }
-
 }
 
 + (void)addToPants:(UIImage *)image{
