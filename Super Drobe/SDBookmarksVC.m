@@ -55,13 +55,13 @@
     shirtCarousel = [[iCarousel alloc] init];
     [shirtCarousel setDelegate:self];
     [shirtCarousel setDataSource:self];
-    [shirtCarousel setType:iCarouselTypeCylinder];
+    [shirtCarousel setType:iCarouselTypeInvertedCylinder];
     [self.view addSubview:shirtCarousel];
     
     pantCarousel = [[iCarousel alloc] init];
     [pantCarousel setDelegate:self];
     [pantCarousel setDataSource:self];
-    [pantCarousel setType:iCarouselTypeCylinder];
+    [pantCarousel setType:iCarouselTypeInvertedCylinder];
     [self.view addSubview:pantCarousel];
 }
 
@@ -92,8 +92,10 @@
     self.navigationController.toolbar.layer.shadowOpacity = 0.5f;
     self.navigationController.toolbar.layer.shadowPath = loginViewShadow.CGPath;
     
-    shirtCarousel.frame = CGRectMake(0, NAVBAR_HEIGHT + 30, self.view.frame.size.width, 160);
-    pantCarousel.frame = CGRectMake(0, shirtCarousel.frame.origin.y + shirtCarousel.frame.size.height + 45, self.view.frame.size.width, 160);
+    shirtCarousel.frame  = CGRectMake(0, 0, self.view.frame.size.width, 220);
+    shirtCarousel.center = CGPointMake(self.view.center.x, self.view.center.y - 130);
+    pantCarousel.frame   = CGRectMake(0, 0, self.view.frame.size.width, 220);
+    pantCarousel.center  = CGPointMake(self.view.center.x, self.view.center.y + 130);
 }
 
 - (void)viewWillDisappear:(BOOL)animated{

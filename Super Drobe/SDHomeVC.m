@@ -57,7 +57,7 @@
     UIBarButtonItem *logoutBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"logout"]
                                                                style:UIBarButtonItemStylePlain
                                                               target:self action:@selector(performLogout:)];
-    
+
     self.navigationItem.leftBarButtonItem = logoutBtn;
     
 
@@ -92,13 +92,13 @@
     shirtCarousel = [[iCarousel alloc] init];
     [shirtCarousel setDelegate:self];
     [shirtCarousel setDataSource:self];
-    [shirtCarousel setType:iCarouselTypeLinear];
+    [shirtCarousel setType:iCarouselTypeCylinder];
     [self.view addSubview:shirtCarousel];
     
     pantCarousel = [[iCarousel alloc] init];
     [pantCarousel setDelegate:self];
     [pantCarousel setDataSource:self];
-    [pantCarousel setType:iCarouselTypeLinear];
+    [pantCarousel setType:iCarouselTypeCylinder];
     [self.view addSubview:pantCarousel];
 }
 
@@ -283,16 +283,51 @@
 - (void)toggleBookmarks:(id)sender{
     
     if (shirtArr.count > 0 && pantArr.count > 0) {
+        
         BOOL shirt = [SDDataHelper toggleShirtBookmark:[shirtArr objectAtIndex:shirtCarousel.currentItemIndex]];
         BOOL pant = [SDDataHelper togglePantBookmark:[pantArr objectAtIndex:pantCarousel.currentItemIndex]];
         
         if (shirt && pant) {
-            [[[UIAlertView alloc] initWithTitle:@"" message:@"Pair added to Bookmarks"
-                                       delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+           
+            shirtCarousel.alpha = 0.5;
+            pantCarousel.alpha  = 0.5;
+            
+            [self.view makeToast:@"Pair added to Bookmarks"
+                        duration:2.0
+                        position:[NSValue valueWithCGPoint:shirtCarousel.center]
+                           title:nil image:nil style:nil completion:^(BOOL didTap) {
+
+                               shirtCarousel.alpha = 1;
+                               pantCarousel.alpha  = 1;
+                           }];
         }
         else if (!shirt && !pant){
-            [[[UIAlertView alloc] initWithTitle:@"" message:@"Pair removed from Bookmarks"
-                                       delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+            
+            shirtCarousel.alpha = 0.5;
+            pantCarousel.alpha  = 0.5;
+            
+            [self.view makeToast:@"Pair removed from Bookmarks"
+                        duration:2.0
+                        position:[NSValue valueWithCGPoint:shirtCarousel.center]
+                           title:nil image:nil style:nil completion:^(BOOL didTap) {
+
+                               shirtCarousel.alpha = 1;
+                               pantCarousel.alpha  = 1;
+                           }];
+        }
+        else{
+            
+            shirtCarousel.alpha = 0.5;
+            pantCarousel.alpha  = 0.5;
+            
+            [self.view makeToast:@"Pair already Bookmarked"
+                        duration:2.0
+                        position:[NSValue valueWithCGPoint:shirtCarousel.center]
+                           title:nil image:nil style:nil completion:^(BOOL didTap) {
+                               
+                               shirtCarousel.alpha = 1;
+                               pantCarousel.alpha  = 1;
+                           }];
         }
     }
     else{
@@ -513,7 +548,7 @@ static int pantCounter = 0;
         if ([dict objectForKey:UIImagePickerControllerMediaType] == ALAssetTypePhoto){
             if ([dict objectForKey:UIImagePickerControllerOriginalImage]){
               
-                UIImage* image=[dict objectForKey:UIImagePickerControllerOriginalImage];
+                UIImage* image = [dict objectForKey:UIImagePickerControllerOriginalImage];
                 
                 if (lastSelectedCarousel == shirtCarousel) {
                     [SDDataHelper addToShirts:image];
@@ -558,13 +593,20 @@ static int pantCounter = 0;
         [view addSubview:img];
     }
     
-    view.frame = CGRectMake(0, 0, 240, 220);
+    view.frame = CGRectMake(0, 0, 260, 220);
     img.frame = CGRectMake(0, 0, 220, 220);
     img.center = view.center;
     
     img.layer.cornerRadius = 10;
     img.layer.borderWidth  = 2.0f;
     img.layer.borderColor  = [[UIColor whiteColor] CGColor];
+    
+    UIBezierPath *loginViewShadow = [UIBezierPath bezierPathWithRect:view.bounds];
+    view.layer.masksToBounds = NO;
+    view.layer.shadowColor = [UIColor blackColor].CGColor;
+    view.layer.shadowOffset = CGSizeMake(0.0f, 5.0f);
+    view.layer.shadowOpacity = 0.5f;
+    view.layer.shadowPath = loginViewShadow.CGPath;
     
     if (carousel == shirtCarousel) {
        

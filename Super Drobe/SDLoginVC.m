@@ -59,7 +59,7 @@
     [titleLab sizeToFit];
     self.navigationItem.titleView = titleLab;
     
-    [self setupView];
+    [self initViews];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -82,30 +82,56 @@
     //drop shadow
     UIBezierPath *loginViewShadow = [UIBezierPath bezierPathWithRect:loginView.bounds];
     loginView.layer.masksToBounds = NO;
-    loginView.layer.shadowColor = [UIColor blackColor].CGColor;
-    loginView.layer.shadowOffset = CGSizeMake(0.0f, 5.0f);
+    loginView.layer.shadowColor   = [UIColor blackColor].CGColor;
+    loginView.layer.shadowOffset  = CGSizeMake(0.0f, 5.0f);
     loginView.layer.shadowOpacity = 0.5f;
-    loginView.layer.shadowPath = loginViewShadow.CGPath;
+    loginView.layer.shadowPath    = loginViewShadow.CGPath;
+    
+    UIBezierPath *loginBtnShadow = [UIBezierPath bezierPathWithRect:loginBtn.bounds];
+    loginBtn.layer.masksToBounds = NO;
+    loginBtn.layer.shadowColor   = [UIColor blackColor].CGColor;
+    loginBtn.layer.shadowOffset  = CGSizeMake(0.0f, 5.0f);
+    loginBtn.layer.shadowOpacity = 0.5f;
+    loginBtn.layer.shadowPath    = loginBtnShadow.CGPath;
     
     UIBezierPath *fbLoginShadow = [UIBezierPath bezierPathWithRect:fbLogin.bounds];
     fbLogin.layer.masksToBounds = NO;
-    fbLogin.layer.shadowColor = [UIColor blackColor].CGColor;
-    fbLogin.layer.shadowOffset = CGSizeMake(0.0f, 5.0f);
+    fbLogin.layer.shadowColor   = [UIColor blackColor].CGColor;
+    fbLogin.layer.shadowOffset  = CGSizeMake(0.0f, 5.0f);
     fbLogin.layer.shadowOpacity = 0.5f;
-    fbLogin.layer.shadowPath = fbLoginShadow.CGPath;
+    fbLogin.layer.shadowPath    = fbLoginShadow.CGPath;
     
     //border effect
-    loginView.layer.borderWidth = 2.0f;
+    loginView.layer.borderWidth  = 2.0f;
     loginView.layer.cornerRadius = 10.0f;
-    loginView.layer.borderColor = [UIColor blackColor].CGColor;
+    loginView.layer.borderColor  = [UIColor blackColor].CGColor;
     
-    fbLogin.layer.borderWidth = 2.0f;
+    loginBtn.layer.borderWidth  = 2.0f;
+    loginBtn.layer.cornerRadius = 5.0f;
+    loginBtn.layer.borderColor  = [UIColor blackColor].CGColor;
+    
+    fbLogin.layer.borderWidth  = 2.0f;
     fbLogin.layer.cornerRadius = 10.0f;
-    fbLogin.layer.borderColor = [UIColor blackColor].CGColor;
+    fbLogin.layer.borderColor  = [UIColor blackColor].CGColor;
     
-    //view frames
-    loginView.frame = CGRectMake(30, 0, self.view.frame.size.width-60, 90);
-    loginView.center = CGPointMake(self.view.center.x, self.view.center.y - 45);
+    [self setupFinalView:NO];
+}
+
+- (void)setupFinalView:(BOOL)option{
+    
+    //set view frames
+    if (option) {
+        loginView.frame  = CGRectMake(30, 0, self.view.frame.size.width-60, 90);
+        loginView.center = CGPointMake(self.view.center.x, self.view.center.y - 60);
+        
+        introLab.frame  = CGRectMake(15, 0, self.view.frame.size.width - 30, 60);
+        introLab.center = CGPointMake(introLab.center.x, loginView.frame.origin.y - 45);
+    }
+    else{
+        loginView.frame = CGRectMake(30, self.view.frame.size.height, self.view.frame.size.width-60, 90);
+        introLab.frame  = CGRectMake(15, 0, self.view.frame.size.width - 30, 60);
+        introLab.center = self.view.center;
+    }
     
     usernameLab.frame   = CGRectMake(0, 0, 120, 45);
     usernameField.frame = CGRectMake(usernameLab.frame.size.width, 0,
@@ -115,14 +141,18 @@
     passwordField.frame = CGRectMake(passwordLab.frame.size.width, passwordLab.frame.origin.y,
                                      loginView.frame.size.width - passwordLab.frame.size.width, 45);
     
-    introLab.frame = CGRectMake(15, 0, self.view.frame.size.width - 30, 60);
-    introLab.center = CGPointMake(introLab.center.x, loginView.frame.origin.y - 45);
+    loginBtn.frame  = CGRectMake(0, 0, 120, 45);
+    loginBtn.center = CGPointMake(self.view.center.x, loginView.center.y + 90);
     
-    loginBtn.frame = CGRectMake(0, 0, 120, 30);
-    loginBtn.center = CGPointMake(self.view.center.x, loginView.center.y + 75);
-    
-    fbLogin.frame = CGRectMake(0, 0, 240, 40);
+    fbLogin.frame  = CGRectMake(0, 0, 240, 40);
     fbLogin.center = CGPointMake(self.view.center.x, loginBtn.center.y + 90);
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
+    [self performSelector:@selector(animateLoginPresentation:)
+               withObject:nil afterDelay:2.0];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
@@ -140,14 +170,14 @@
 
 #pragma mark - UI Helpers
 
-- (void)setupView{
+- (void)initViews{
     
     //init intro label
     introLab = [[UILabel alloc] init];
     [introLab setTextColor:[UIColor blackColor]];
     [introLab setTextAlignment:NSTextAlignmentCenter];
-    [introLab setFont:FONT_MED];
     [introLab setNumberOfLines:0];
+    [introLab setFont:FONT_MED];
     [introLab setText:@"Super Drobe helps to get the best out of you (your wardrobe actually)"];
     
     //blur & vibrancy
@@ -206,9 +236,11 @@
     [passwordField setTextColor:[UIColor whiteColor]];
     
     loginBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [loginBtn setTitle:@"Sign In..." forState:UIControlStateNormal];
-    loginBtn.titleLabel.font = FONT_LRG;
+    [loginBtn setTitle:@"Login" forState:UIControlStateNormal];
+    loginBtn.titleLabel.font = FONT_MED;
     [loginBtn addTarget:self action:@selector(performLogin:) forControlEvents:UIControlEventTouchUpInside];
+    [loginBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [loginBtn setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
     
     fbLogin = [UIButton buttonWithType:UIButtonTypeCustom];
     fbLogin.backgroundColor = avgColor;
@@ -223,6 +255,16 @@
     [self.view addSubview:loginView];
     [self.view addSubview:loginBtn];
     [self.view addSubview:fbLogin];
+}
+
+- (void)animateLoginPresentation:(id)sender{
+
+    [UIView animateWithDuration:1.0 delay:0
+                        options:UIViewAnimationOptionCurveEaseIn
+                     animations:^{
+                         
+                         [self setupFinalView:YES];
+                     } completion:nil];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{

@@ -56,13 +56,13 @@
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Shirt"];
     
-    NSError *fetchErr = nil;
-    NSArray *fetchedResults = [appDelegate.managedObjectContext executeFetchRequest:request error:&fetchErr];
-    
     if (option) {
-        NSPredicate *pred = [NSPredicate predicateWithFormat:@"isBookmarked == %@", [NSNumber numberWithBool:YES]];
+        NSPredicate *pred = [NSPredicate predicateWithFormat:@"isBookmarked == %@", [NSNumber numberWithBool:option]];
         [request setPredicate:pred];
     }
+    
+    NSError *fetchErr = nil;
+    NSArray *fetchedResults = [appDelegate.managedObjectContext executeFetchRequest:request error:&fetchErr];
     
     if (fetchErr) {
         NSLog(@"SDDataHelper getAllShirts fetchErr : %@", fetchErr.localizedDescription);
@@ -78,7 +78,7 @@
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Pant"];
     
     if (option) {
-        NSPredicate *pred = [NSPredicate predicateWithFormat:@"isBookmarked == %@", [NSNumber numberWithBool:YES]];
+        NSPredicate *pred = [NSPredicate predicateWithFormat:@"isBookmarked == %@", [NSNumber numberWithBool:option]];
         [request setPredicate:pred];
     }
     
