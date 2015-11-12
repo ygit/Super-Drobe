@@ -10,7 +10,11 @@
 
 #import "SDAppDelegate.h"
 #import "SDLoginVC.h"
+#import "SDHomeVC.h"
+#import "SDBookmarksVC.h"
 #import "SDUtils.h"
+#import "SDDataHelper.h"
+#import "MBProgressHUD.h"
 
 @interface SDAppDelegate ()
 
@@ -23,23 +27,62 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    [[FBSDKApplicationDelegate sharedInstance] application:application
+                             didFinishLaunchingWithOptions:launchOptions];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+       [SDDataHelper spawnBackgroundAssetSave];
+    });
+    
+    //for keyboard lag
+    UITextField *lagFreeField = [[UITextField alloc] init];
+    [self.window addSubview:lagFreeField];
+    [lagFreeField becomeFirstResponder];
+    [lagFreeField resignFirstResponder];
+    [lagFreeField removeFromSuperview];
+    
     window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     SDLoginVC *loginVC = [[SDLoginVC alloc] init];
-    UINavigationController *navigationController = [[UINavigationController alloc]initWithRootViewController:loginVC];
+    
+    UINavigationController *navigationController   = [[UINavigationController alloc]initWithRootViewController:loginVC];
     navigationController.navigationBar.translucent = YES;
-    navigationController.navigationBar.tintColor = [SDUtils getAverageColorFromImage:BG_IMAGE];
+    navigationController.navigationBar.tintColor   = [SDUtils getAverageColorFromImage:BG_IMAGE];
     window.rootViewController = navigationController;
     
     [window makeKeyAndVisible];
-    
-    [[FBSDKApplicationDelegate sharedInstance] application:application
-                             didFinishLaunchingWithOptions:launchOptions];
     
     return YES;
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     [FBSDKAppEvents activateApp];
+}
+
+- (void)applicationWillEnterForeground:(UIApplication *)application{
+    
+    [SDDataHelper spawnBackgroundAssetSave];
+
+    UINavigationController *navigationController = (UINavigationController *)window.rootViewController;
+    
+    if ([navigationController.topViewController isKindOfClass:[SDHomeVC class]] ||
+        [navigationController.topViewController isKindOfClass:[SDBookmarksVC class]]) {
+     
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.window animated:YES];
+        hud.labelText = @"Refreshing";
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:SHOULD_UPDATE_SHIRTS_VIEW object:nil];
+            [[NSNotificationCenter defaultCenter] postNotificationName:SHOULD_UPDATE_PANTS_VIEW  object:nil];
+            [hud hide:YES];
+        });
+    }
+}
+
+- (void)applicationDidReceiveMemoryWarning:(UIApplication *)application{
+    //can purge default assets here
+    
+    [SDDataHelper purgeDefaultAssets];  //can be recreated
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {

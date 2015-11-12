@@ -27,4 +27,8 @@
 
 + (BOOL)togglePantBookmark:(Pant *)pant;
 
++ (void)spawnBackgroundAssetSave;
+
++ (void)purgeDefaultAssets;
+
 @end

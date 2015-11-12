@@ -39,6 +39,7 @@
 		EC9AFBCF1BF0CCE4004C6961 /* SDBookmarksVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EC9AFBCE1BF0CCE4004C6961 /* SDBookmarksVC.m */; };
 		ECA246631BEA23F200D358B9 /* SDUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA246621BEA23F200D358B9 /* SDUtils.m */; };
 		ECAF9B4A1BEADFF7002DE248 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECAF9B491BEADFF7002DE248 /* Media.xcassets */; };
+		ECEFD71A1BF471220021971A /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = ECEFD7191BF471220021971A /* Settings.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -99,6 +100,7 @@
 		ECA246611BEA23F200D358B9 /* SDUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDUtils.h; sourceTree = "<group>"; };
 		ECA246621BEA23F200D358B9 /* SDUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDUtils.m; sourceTree = "<group>"; };
 		ECAF9B491BEADFF7002DE248 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		ECEFD7191BF471220021971A /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 		EC2B35371BF2C1F0009BC0D7 /* ELCImagePickerController */ = {
 			isa = PBXGroup;
 			children = (
+				ECEFD71B1BF47EAC0021971A /* ELC Resources */,
 				EC2B35381BF2C21B009BC0D7 /* ELCAlbumPickerController.h */,
 				EC2B35391BF2C21B009BC0D7 /* ELCAlbumPickerController.m */,
 				EC2B353A1BF2C21B009BC0D7 /* ELCAsset.h */,
@@ -154,7 +157,6 @@
 				EC2B35461BF2C21B009BC0D7 /* ELCImagePickerHeader.h */,
 				EC2B35471BF2C21B009BC0D7 /* ELCOverlayImageView.h */,
 				EC2B35481BF2C21B009BC0D7 /* ELCOverlayImageView.m */,
-				EC2B35501BF2C222009BC0D7 /* Resources */,
 			);
 			name = ELCImagePickerController;
 			sourceTree = "<group>";
@@ -162,11 +164,7 @@
 		EC2B35501BF2C222009BC0D7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				EC2B35511BF2C231009BC0D7 /* ELCAlbumPickerController.xib */,
-				EC2B35521BF2C231009BC0D7 /* ELCAssetPicker.xib */,
-				EC2B35531BF2C231009BC0D7 /* ELCAssetTablePicker.xib */,
-				EC2B35541BF2C231009BC0D7 /* Overlay.png */,
-				EC2B35551BF2C231009BC0D7 /* Overlay@2x.png */,
+				ECEFD7191BF471220021971A /* Settings.bundle */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -175,8 +173,9 @@
 			isa = PBXGroup;
 			children = (
 				EC3EB53D1BE98B5E003ADEE7 /* Super Drobe */,
-				EC3EB53C1BE98B5E003ADEE7 /* Products */,
+				EC2B35501BF2C222009BC0D7 /* Resources */,
 				EC52225C1BEA78B7003670BF /* Frameworks */,
+				EC3EB53C1BE98B5E003ADEE7 /* Products */,
 				C53786F8B1DC43CA36371C87 /* Pods */,
 			);
 			sourceTree = "<group>";
@@ -267,6 +266,18 @@
 			name = "Data Helpers";
 			sourceTree = "<group>";
 		};
+		ECEFD71B1BF47EAC0021971A /* ELC Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EC2B35511BF2C231009BC0D7 /* ELCAlbumPickerController.xib */,
+				EC2B35521BF2C231009BC0D7 /* ELCAssetPicker.xib */,
+				EC2B35531BF2C231009BC0D7 /* ELCAssetTablePicker.xib */,
+				EC2B35541BF2C231009BC0D7 /* Overlay.png */,
+				EC2B35551BF2C231009BC0D7 /* Overlay@2x.png */,
+			);
+			name = "ELC Resources";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -334,6 +345,7 @@
 				ECAF9B4A1BEADFF7002DE248 /* Media.xcassets in Resources */,
 				EC2B355A1BF2C231009BC0D7 /* Overlay@2x.png in Resources */,
 				EC3EB54E1BE98B5E003ADEE7 /* Assets.xcassets in Resources */,
+				ECEFD71A1BF471220021971A /* Settings.bundle in Resources */,
 				EC2B35571BF2C231009BC0D7 /* ELCAssetPicker.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

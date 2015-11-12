@@ -1,10 +1,13 @@
 PODS:
+  - MBProgressHUD (0.9.1)
   - Toast (3.0)
 
 DEPENDENCIES:
+  - MBProgressHUD (~> 0.9.1)
   - Toast (~> 3.0)
 
 SPEC CHECKSUMS:
+  MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
   Toast: 32c59229abfcf41850162b83bb9259dc84372473
 
 COCOAPODS: 0.39.0

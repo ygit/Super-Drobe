@@ -3,15 +3,17 @@
     <entity name="Pant" representedClassName="Pant" syncable="YES">
         <attribute name="img" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <attribute name="isBookmarked" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isDefault" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="isDisliked" optional="YES" attributeType="Boolean" syncable="YES"/>
     </entity>
     <entity name="Shirt" representedClassName="Shirt" syncable="YES">
         <attribute name="img" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <attribute name="isBookmarked" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isDefault" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="isDisliked" optional="YES" attributeType="Boolean" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Pant" positionX="115" positionY="-18" width="128" height="88"/>
-        <element name="Shirt" positionX="-63" positionY="-18" width="128" height="88"/>
+        <element name="Pant" positionX="115" positionY="-18" width="128" height="105"/>
+        <element name="Shirt" positionX="-63" positionY="-18" width="128" height="105"/>
     </elements>
 </model>
